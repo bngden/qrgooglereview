@@ -4,9 +4,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const NAV = [
-  { href: '/#cara-kerja', label: 'Cara Kerja' },
+  { href: '/', label: 'Beranda' },
   { href: '/#template-pesan', label: 'Template Pesan' },
   { href: '/#faq', label: 'FAQ' },
+  { href: '/reset', label: 'Reset tujuan QR' },
 ]
 
 export function SiteHeader() {

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Generator } from '@/components/public/generator'
 import { TemplateSection } from '@/components/public/template-section'
 import { Troubleshooting } from '@/components/public/troubleshooting'
@@ -84,6 +85,13 @@ export default function HomePage() {
 
             <Generator />
 
+            <p className="text-body-sm text-slate-600">
+              Sudah punya QR dinamis?{' '}
+              <Link href="/reset" className="font-label-md text-blue-600 hover:underline">
+                Reset tujuan QR dengan kode yang dibagikan →
+              </Link>
+            </p>
+
             <ul className="flex flex-wrap items-center gap-x-space-xl gap-y-space-sm pt-space-xs text-body-sm text-slate-600">
               {['Gratis selamanya', 'Tanpa login', 'Unduh QR PNG & SVG'].map((item) => (
                 <li key={item} className="flex items-center gap-space-xs">
@@ -156,7 +164,7 @@ export default function HomePage() {
       </section>
 
       {/* 2. CARA KERJA */}
-      <section id="cara-kerja" className="w-full bg-blue-50 py-[96px] scroll-mt-[72px]">
+      <section className="w-full bg-blue-50 py-[96px]">
         <div className="max-w-7xl mx-auto px-gutter flex flex-col items-center gap-space-2xl">
           <div className="text-center max-w-xl flex flex-col gap-space-sm">
             <h2 className="font-headline-lg text-[28px] md:text-[36px] text-navy-900">

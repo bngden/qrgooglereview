@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getQrById, updateQr, softDeleteQr, toQrDto } from '@/lib/services/qr.service'
+import { getQrById, getQrHistory, updateQr, softDeleteQr, toQrDto } from '@/lib/services/qr.service'
 import { validateDestinationUrl } from '@/lib/security/url-validate'
 import { sanitizeQrStyle, type QrStyle } from '@/lib/qr/style'
 import { getAdmin, unauthorized, isSameOrigin, forbiddenOrigin } from '@/lib/security/session'
@@ -23,7 +23,8 @@ export async function GET(request: NextRequest, { params }: Params) {
   const qr = await getQrById(id)
   if (!qr) return notFound()
 
-  return NextResponse.json({ qr: toQrDto(qr) })
+  const history = await getQrHistory(qr.id, qr.defaultUrl)
+  return NextResponse.json({ qr: toQrDto(qr), history })
 }
 
 /** PATCH /api/admin/qr/:id — ubah field; perubahan tujuan tercatat di riwayat */
@@ -54,19 +55,35 @@ export async function PATCH(request: NextRequest, { params }: Params) {
     )
   }
 
+  const patch = { ...parsed.data }
+
   // Tujuan baru wajib lolos validasi (anti loop + host privat)
-  if (parsed.data.destinationUrl) {
-    const validation = validateDestinationUrl(parsed.data.destinationUrl)
+  if (patch.destinationUrl) {
+    const validation = validateDestinationUrl(patch.destinationUrl)
     if (!validation.valid) {
       return NextResponse.json(
         { error: { code: 'INVALID_INPUT', message: validation.error ?? 'URL tidak valid' } },
         { status: 400 }
       )
     }
+    patch.destinationUrl = validation.normalizedUrl!
+  }
+  if (patch.expiredUrl !== undefined && patch.expiredUrl !== null) {
+    if (patch.expiredUrl === '') {
+      patch.expiredUrl = null
+    } else {
+      const validation = validateDestinationUrl(patch.expiredUrl)
+      if (!validation.valid) {
+        return NextResponse.json(
+          { error: { code: 'INVALID_INPUT', message: validation.error ?? 'URL kedaluwarsa tidak valid' } },
+          { status: 400 }
+        )
+      }
+      patch.expiredUrl = validation.normalizedUrl
+    }
   }
 
   // Gaya QR: kontras dikoreksi otomatis, logo yang melanggar aturan ditolak
-  const patch = { ...parsed.data }
   if (patch.style) {
     const sanitized = sanitizeQrStyle(patch.style as QrStyle)
     if (!sanitized.ok) {

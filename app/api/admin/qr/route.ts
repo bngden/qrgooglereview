@@ -76,8 +76,8 @@ export async function POST(request: NextRequest) {
     if (resolved.status === 'found') {
       destinationUrl = resolved.reviewUrl
       placeId = resolved.placeId
-      businessName = resolved.name ?? undefined
-      businessAddress = resolved.address ?? undefined
+      businessName = resolved.name?.trim() || undefined
+      businessAddress = resolved.address?.trim() || undefined
     } else if (resolved.status === 'candidates') {
       return NextResponse.json(
         {
@@ -106,6 +106,22 @@ export async function POST(request: NextRequest) {
     destinationUrl = validation.normalizedUrl!
   }
 
+  let expiredUrl: string | undefined
+  if (input.expiredUrl !== undefined) {
+    if (input.expiredUrl === '') {
+      expiredUrl = undefined
+    } else {
+      const validation = validateDestinationUrl(input.expiredUrl)
+      if (!validation.valid) {
+        return NextResponse.json(
+          { error: { code: 'INVALID_INPUT', message: validation.error ?? 'URL kedaluwarsa tidak valid' } },
+          { status: 400 }
+        )
+      }
+      expiredUrl = validation.normalizedUrl
+    }
+  }
+
   // Gaya QR: kontras dikoreksi otomatis, logo yang melanggar aturan ditolak
   let style: Record<string, unknown> | undefined
   if (input.style) {
@@ -132,7 +148,7 @@ export async function POST(request: NextRequest) {
     businessName,
     businessAddress,
     expiresAt: input.expiresAt,
-    expiredUrl: input.expiredUrl,
+    expiredUrl,
     notes: input.notes,
     guestResetEnabled: input.guestResetEnabled,
     style,

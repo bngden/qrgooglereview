@@ -41,7 +41,7 @@ export type ResolveCandidate = {
 }
 
 export type ResolveResult =
-  | { status: 'found'; placeId: string; name: string; address: string; reviewUrl: string }
+  | { status: 'found'; placeId: string; name: string | null; address: string | null; reviewUrl: string }
   | { status: 'candidates'; candidates: ResolveCandidate[] }
   | {
       status: 'error'
@@ -76,7 +76,11 @@ function apiErrorResult(e: unknown): ResolveResult {
         'Pencarian tempat belum aktif. Tempel link Google Maps lengkap yang sudah memuat Place ID untuk melanjutkan.',
     }
   }
-  return { status: 'error', code: 'API_ERROR', message: msg }
+  return {
+    status: 'error',
+    code: 'API_ERROR',
+    message: 'Pencarian tempat sedang bermasalah. Coba lagi beberapa saat lagi.',
+  }
 }
 
 /** Cari di cache dulu */
@@ -157,8 +161,7 @@ async function callPlacesTextSearch(
   })
 
   if (!res.ok) {
-    const err = await res.text().catch(() => 'unknown error')
-    throw new Error(`Places API error ${res.status}: ${err}`)
+    throw new Error(`Places API error ${res.status}`)
   }
 
   const data = (await res.json()) as {
@@ -241,8 +244,8 @@ export async function resolvePlaceFromInput(input: string): Promise<ResolveResul
     return {
       status: 'found',
       placeId: parsed.placeId,
-      name: '',
-      address: '',
+      name: null,
+      address: null,
       reviewUrl: buildReviewUrl(parsed.placeId),
     }
   }

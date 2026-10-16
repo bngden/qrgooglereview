@@ -17,7 +17,17 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     )
   }
 
-  await restoreQr(id)
+  try {
+    await restoreQr(id)
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'QR tidak dapat dipulihkan'
+    const expired = message.includes('Masa pemulihan')
+    return NextResponse.json(
+      { error: { code: expired ? 'RESTORE_EXPIRED' : 'UPDATE_FAILED', message } },
+      { status: expired ? 410 : 400 }
+    )
+  }
+
   const restored = await getQrById(id)
   return NextResponse.json({ qr: toQrDto(restored ?? qr) })
 }

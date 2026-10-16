@@ -8,6 +8,7 @@
  * - login: email "kunci@reviewqr.id" → 5 gagal → RATE_LIMITED
  */
 import type { QrDto, CreateQrResponse } from '@/lib/contracts'
+import { validateDestinationUrl } from '@/lib/security/url-validate'
 import { mockQrs, mockResetCodes, mockDashboard, mockQrStats } from './data'
 
 type MockResult = { status: number; json?: unknown; text?: string; contentType?: string }
@@ -24,7 +25,7 @@ const err = (status: number, code: string, message: string): MockResult => ({
   json: { error: { code, message } },
 })
 
-const findQr = (id: string) => store.qrs.find((q) => q.id === id && !q.deletedAt)
+const findAdminQr = (id: string) => store.qrs.find((q) => q.id === id)
 
 const paginate = (items: QrDto[], page: number, pageSize: number) => ({
   items: items.slice((page - 1) * pageSize, page * pageSize),
@@ -86,7 +87,9 @@ export function handleMock(method: string, url: URL, body: unknown): MockResult 
   if (path === '/api/guest/verify' && method === 'POST') {
     const slug = String(input.slug ?? '').replace(/[^0-9A-Za-z]/g, '').toUpperCase()
     const code = String(input.code ?? '').replace(/[^0-9A-Za-z]/g, '').toUpperCase()
-    const qr = store.qrs.find((q) => q.slug === slug)
+    const qr = store.qrs.find(
+      (q) => q.slug === slug && !q.deletedAt && q.status === 'active' && q.guestResetEnabled
+    )
 
     const failures = verifyAttempts.get(slug) ?? 0
     if (failures >= 5) return err(429, 'RATE_LIMITED', 'Terlalu banyak percobaan, coba lagi nanti')
@@ -101,7 +104,7 @@ export function handleMock(method: string, url: URL, body: unknown): MockResult 
     return {
       status: 200,
       json: {
-        token: `mock-token-${slug}-${Date.now()}`,
+        token: `mock-token-${slug}-${qr.resetCodeRotatedAt.getTime()}-${Date.now()}`,
         qr: {
           type: qr.type,
           businessName: qr.businessName,
@@ -116,27 +119,39 @@ export function handleMock(method: string, url: URL, body: unknown): MockResult 
     const token = String(input.token ?? '')
     if (!token.startsWith('mock-token-'))
       return err(401, 'UNAUTHORIZED', 'Sesi reset sudah berakhir. Silakan ulangi dari awal.')
-    const slug = token.split('-')[2]
-    const qr = store.qrs.find((q) => q.slug === slug)
+    const tokenParts = token.split('-')
+    const slug = tokenParts[2]
+    const rotatedAt = Number(tokenParts[3])
+    const qr = store.qrs.find(
+      (q) =>
+        q.slug === slug &&
+        !q.deletedAt &&
+        q.status === 'active' &&
+        q.guestResetEnabled &&
+        q.resetCodeRotatedAt.getTime() === rotatedAt
+    )
     if (!qr) return err(400, 'UPDATE_FAILED', 'QR tidak ditemukan')
 
     if (input.restoreDefault === true) {
+      if (qr.destinationUrl === qr.defaultUrl) {
+        return { status: 200, json: { destinationUrl: qr.destinationUrl } }
+      }
       qr.destinationUrl = qr.defaultUrl
       return { status: 200, json: { destinationUrl: qr.destinationUrl } }
     }
     const newInput = String(input.input ?? '')
-    if (/^(javascript|data|file):/i.test(newInput))
-      return err(400, 'UPDATE_FAILED', 'URL tidak valid: skema tidak diizinkan')
     if (newInput.toLowerCase().includes('multi'))
       return err(400, 'UPDATE_FAILED', 'Beberapa lokasi ditemukan, pilih yang benar')
-    if (newInput.toLowerCase().includes('localhost'))
-      return err(400, 'UPDATE_FAILED', 'URL tidak valid: host tidak diizinkan')
 
     const resolved = newInput.startsWith('http')
-      ? newInput
-      : `https://search.google.com/local/writereview?placeid=${encodeURIComponent(newInput)}`
-    qr.destinationUrl = resolved
-    return { status: 200, json: { destinationUrl: resolved } }
+      ? validateDestinationUrl(newInput)
+      : { valid: true, normalizedUrl: `https://search.google.com/local/writereview?placeid=${encodeURIComponent(newInput)}` }
+    if (!resolved.valid) return err(400, 'UPDATE_FAILED', resolved.error ?? 'URL tidak valid')
+    if (resolved.normalizedUrl === qr.destinationUrl) {
+      return { status: 200, json: { destinationUrl: qr.destinationUrl } }
+    }
+    qr.destinationUrl = resolved.normalizedUrl!
+    return { status: 200, json: { destinationUrl: qr.destinationUrl } }
   }
 
   // ── Admin ──────────────────────────────────────────────────────────────────
@@ -196,13 +211,27 @@ export function handleMock(method: string, url: URL, body: unknown): MockResult 
     }
 
     if (path === '/api/admin/qr' && method === 'POST') {
+      let destinationUrl = 'https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4'
+      if (input.type === 'url') {
+        const destinationValidation = validateDestinationUrl(String(input.input ?? ''))
+        if (!destinationValidation.valid) return err(400, 'INVALID_INPUT', destinationValidation.error ?? 'URL tidak valid')
+        destinationUrl = destinationValidation.normalizedUrl!
+      }
+
+      let expiredUrl: string | null = null
+      if (typeof input.expiredUrl === 'string' && input.expiredUrl !== '') {
+        const validation = validateDestinationUrl(input.expiredUrl)
+        if (!validation.valid) return err(400, 'INVALID_INPUT', validation.error ?? 'URL kedaluwarsa tidak valid')
+        expiredUrl = validation.normalizedUrl ?? null
+      }
+
       const qr: QrDto = {
         id: crypto.randomUUID(),
         slug: Math.random().toString(36).slice(2, 10).toUpperCase().padEnd(8, 'X'),
         name: String(input.name ?? 'QR baru'),
         type: (input.type as QrDto['type']) ?? 'url',
-        destinationUrl: String(input.input ?? 'https://contoh.com'),
-        defaultUrl: String(input.input ?? 'https://contoh.com'),
+        destinationUrl,
+        defaultUrl: destinationUrl,
         placeId: null,
         businessName: null,
         businessAddress: null,
@@ -210,7 +239,7 @@ export function handleMock(method: string, url: URL, body: unknown): MockResult 
         guestResetEnabled: input.guestResetEnabled !== false,
         resetCodeRotatedAt: new Date(),
         expiresAt: input.expiresAt ? new Date(String(input.expiresAt)) : null,
-        expiredUrl: (input.expiredUrl as string) ?? null,
+        expiredUrl,
         notes: (input.notes as string) ?? null,
         style: (input.style as Record<string, unknown>) ?? {},
         scanCount: 0,
@@ -256,13 +285,13 @@ export function handleMock(method: string, url: URL, body: unknown): MockResult 
     const [id, action] = rest.split('/')
 
     if (action === 'stats' && method === 'GET') {
-      if (!findQr(id)) return err(404, 'NOT_FOUND', 'QR tidak ditemukan')
+      if (!findAdminQr(id)) return err(404, 'NOT_FOUND', 'QR tidak ditemukan')
       const range = (url.searchParams.get('range') ?? '30d') as '7d' | '30d' | '90d'
       return { status: 200, json: mockQrStats(range) }
     }
 
     if (action === 'download' && method === 'GET') {
-      if (!findQr(id)) return err(404, 'NOT_FOUND', 'QR tidak ditemukan')
+      if (!findAdminQr(id)) return err(404, 'NOT_FOUND', 'QR tidak ditemukan')
       return {
         status: 200,
         contentType: 'image/svg+xml',
@@ -271,7 +300,7 @@ export function handleMock(method: string, url: URL, body: unknown): MockResult 
     }
 
     if (!action && method === 'GET') {
-      const qr = findQr(id)
+      const qr = findAdminQr(id)
       if (!qr) return err(404, 'NOT_FOUND', 'QR tidak ditemukan')
       return {
         status: 200,
@@ -290,9 +319,23 @@ export function handleMock(method: string, url: URL, body: unknown): MockResult 
       }
     }
     if (!action && method === 'PATCH') {
-      const qr = findQr(id)
+      const qr = findAdminQr(id)
       if (!qr) return err(404, 'NOT_FOUND', 'QR tidak ditemukan')
-      Object.assign(qr, input, { id: qr.id, slug: qr.slug, updatedAt: new Date() })
+      const patch = { ...input }
+      if (typeof patch.destinationUrl === 'string') {
+        const validation = validateDestinationUrl(patch.destinationUrl)
+        if (!validation.valid) return err(400, 'INVALID_INPUT', validation.error ?? 'URL tidak valid')
+        patch.destinationUrl = validation.normalizedUrl
+      }
+      if (typeof patch.expiredUrl === 'string') {
+        if (patch.expiredUrl === '') patch.expiredUrl = null
+        else {
+          const validation = validateDestinationUrl(patch.expiredUrl)
+          if (!validation.valid) return err(400, 'INVALID_INPUT', validation.error ?? 'URL kedaluwarsa tidak valid')
+          patch.expiredUrl = validation.normalizedUrl
+        }
+      }
+      Object.assign(qr, patch, { id: qr.id, slug: qr.slug, updatedAt: new Date() })
       return { status: 200, json: { qr } }
     }
     if (!action && method === 'DELETE') {
@@ -302,13 +345,17 @@ export function handleMock(method: string, url: URL, body: unknown): MockResult 
       return { status: 200, json: { ok: true } }
     }
     if (action === 'restore' && method === 'POST') {
-      const qr = store.qrs.find((q) => q.id === id)
+      const qr = findAdminQr(id)
       if (!qr) return err(404, 'NOT_FOUND', 'QR tidak ditemukan')
+      if (!qr.deletedAt) return err(400, 'UPDATE_FAILED', 'QR tidak terhapus')
+      if (qr.deletedAt.getTime() < Date.now() - 30 * 24 * 60 * 60 * 1000) {
+        return err(410, 'RESTORE_EXPIRED', 'Masa pemulihan QR sudah berakhir')
+      }
       qr.deletedAt = null
       return { status: 200, json: { qr } }
     }
     if (action === 'rotate-code' && method === 'POST') {
-      const qr = findQr(id)
+      const qr = findAdminQr(id)
       if (!qr) return err(404, 'NOT_FOUND', 'QR tidak ditemukan')
       const resetCode = '7K3M-9XQ2'
       mockResetCodes[qr.slug!] = resetCode.replace('-', '')
@@ -316,7 +363,7 @@ export function handleMock(method: string, url: URL, body: unknown): MockResult 
       return { status: 200, json: { resetCode } }
     }
     if (action === 'revert' && method === 'POST') {
-      const qr = findQr(id)
+      const qr = findAdminQr(id)
       if (!qr) return err(404, 'NOT_FOUND', 'QR tidak ditemukan')
       qr.destinationUrl = qr.defaultUrl
       return { status: 200, json: { qr } }

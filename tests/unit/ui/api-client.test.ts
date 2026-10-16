@@ -75,6 +75,17 @@ describe('lib/api-client contract tests (Mock layer)', () => {
     expect(res.resetCode).toMatch(/^[0-9A-HJKMNP-TV-Z]{4}-[0-9A-HJKMNP-TV-Z]{4}$/)
   })
 
+  it('mock createQr menolak expiredUrl dengan skema berbahaya', async () => {
+    await expect(
+      createQr({
+        name: 'QR uji',
+        type: 'url',
+        input: 'https://example.com',
+        expiredUrl: 'javascript:alert(1)',
+      })
+    ).rejects.toMatchObject({ code: 'INVALID_INPUT', status: 400 })
+  })
+
   it('getQr returns detailed QR', async () => {
     const res = await getQr('11111111-1111-4111-8111-111111111111')
     expect(res).toBeDefined()

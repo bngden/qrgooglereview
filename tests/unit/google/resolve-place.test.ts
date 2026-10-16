@@ -80,6 +80,8 @@ describe('resolvePlaceFromInput — aturan biaya', () => {
     expect(r.status).toBe('found')
     if (r.status === 'found') {
       expect(r.placeId).toBe('ChIJN1ttt6tZ2oRR7J8tPvKqG2A')
+      expect(r.name).toBeNull()
+      expect(r.address).toBeNull()
       expect(r.reviewUrl).toBe(buildReviewUrl('ChIJN1ttt6tZ2oRR7J8tPvKqG2A'))
     }
     expect(fetchMock).not.toHaveBeenCalled()
@@ -169,6 +171,24 @@ describe('resolvePlaceFromInput — perilaku pipeline', () => {
     expect(r.status).toBe('error')
     if (r.status === 'error') expect(r.code).toBe('PLACE_NOT_FOUND')
     expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('error upstream tidak membocorkan body respons', async () => {
+    const fetchMock = stubFetch({
+      ok: false,
+      status: 500,
+      text: async () => 'internal key and provider details',
+    } as Partial<Response>)
+
+    const r = await resolvePlaceFromInput('Kedai Kopi')
+
+    expect(r.status).toBe('error')
+    if (r.status === 'error') {
+      expect(r.code).toBe('API_ERROR')
+      expect(r.message).not.toContain('internal key')
+      expect(r.message).toMatch(/bermasalah/i)
+    }
+    expect(fetchMock).toHaveBeenCalledTimes(1)
   })
 
   it('input terlalu pendek ditolak tanpa menyentuh API', async () => {

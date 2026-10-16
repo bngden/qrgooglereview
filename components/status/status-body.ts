@@ -88,7 +88,7 @@ export function statusBody(state: StatusState): string {
       <p class="sq-desc">${c.desc}</p>
       <div class="sq-actions">
         <a href="/" class="sq-btn">${BACK_ICON}Kembali</a>
-        <a href="/#cara-kerja" class="sq-link">Pelajari cara kerja ReviewQR</a>
+        <a href="/" class="sq-link">Kembali ke Beranda ReviewQR</a>
       </div>
     </div>
   </main>

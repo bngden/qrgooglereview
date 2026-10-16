@@ -5,7 +5,7 @@
 import { SignJWT, jwtVerify } from 'jose'
 import { db } from '@/lib/db/client'
 import { qrCodes, qrDestinationHistory, resetAttempts, auditLog } from '@/lib/db/schema'
-import { eq, and, gte, count, sql } from 'drizzle-orm'
+import { eq, and, gte, count, isNull } from 'drizzle-orm'
 import { verifyResetCode, dummyVerify } from '@/lib/security/hash'
 import { requireJwtSecret } from '@/lib/security/jwt'
 import { normalizeCode8 } from '@/lib/qr/slug'
@@ -22,6 +22,10 @@ const QR_WINDOW_MS = 15 * 60 * 1000 // 15 menit
 const IP_WINDOW_MS = 60 * 60 * 1000 // 1 jam
 const QR_LOCK_MS = 30 * 60 * 1000 // 30 menit
 const MAX_DAILY_CHANGES = 10
+
+function isResettable(qr: { deletedAt: Date | null; guestResetEnabled: boolean; status: string }): boolean {
+  return qr.deletedAt === null && qr.guestResetEnabled && qr.status === 'active'
+}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 export type GuestVerifyResult =
@@ -78,7 +82,7 @@ export async function verifyGuestReset(
   const rows = await db
     .select()
     .from(qrCodes)
-    .where(and(eq(qrCodes.slug, slug), sql`deleted_at IS NULL`))
+    .where(and(eq(qrCodes.slug, slug), isNull(qrCodes.deletedAt)))
     .limit(1)
 
   const qr = rows[0]
@@ -145,13 +149,16 @@ export async function verifyGuestReset(
     return { success: false, error: 'INVALID_CREDENTIALS' }
   }
 
-  // Cek guest_reset_enabled
-  if (!qr.guestResetEnabled) {
+  if (!isResettable(qr)) {
     return { success: false, error: 'INVALID_CREDENTIALS' }
   }
 
   // Buat token sementara 5 menit
-  const token = await new SignJWT({ qrId: qr.id, scope: 'reset' })
+  const token = await new SignJWT({
+    qrId: qr.id,
+    scope: 'reset',
+    resetCodeRotatedAt: qr.resetCodeRotatedAt.toISOString(),
+  })
     .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
     .setExpirationTime(`${GUEST_TOKEN_DURATION_S}s`)
@@ -177,13 +184,17 @@ export async function updateGuestDestination(
   ipHash: string
 ): Promise<GuestUpdateResult> {
   // Verifikasi token
-  let payload: { qrId: string; scope: string }
+  let payload: { qrId: string; scope: string; resetCodeRotatedAt: string }
   try {
     const { payload: p } = await jwtVerify(token, getGuestSecret())
-    if (p.scope !== 'reset' || typeof p.qrId !== 'string') {
+    if (
+      p.scope !== 'reset' ||
+      typeof p.qrId !== 'string' ||
+      typeof p.resetCodeRotatedAt !== 'string'
+    ) {
       return { success: false, error: 'Token tidak valid' }
     }
-    payload = p as { qrId: string; scope: string }
+    payload = p as { qrId: string; scope: string; resetCodeRotatedAt: string }
   } catch {
     return { success: false, error: 'Token tidak valid atau sudah kedaluwarsa' }
   }
@@ -195,23 +206,9 @@ export async function updateGuestDestination(
     .limit(1)
     .then((r) => r[0])
 
-  if (!qr) return { success: false, error: 'QR tidak ditemukan' }
-
-  // Cek batas 10 perubahan/QR/hari
-  const since = new Date(Date.now() - 24 * 60 * 60 * 1000)
-  const [{ dailyChanges }] = await db
-    .select({ dailyChanges: count() })
-    .from(qrDestinationHistory)
-    .where(
-      and(
-        eq(qrDestinationHistory.qrId, qr.id),
-        eq(qrDestinationHistory.actor, 'guest'),
-        gte(qrDestinationHistory.createdAt, since)
-      )
-    )
-
-  if (Number(dailyChanges) >= MAX_DAILY_CHANGES) {
-    return { success: false, error: 'Batas perubahan harian tercapai' }
+  if (!qr || !isResettable(qr)) return { success: false, error: 'QR tidak ditemukan' }
+  if (payload.resetCodeRotatedAt !== qr.resetCodeRotatedAt.toISOString()) {
+    return { success: false, error: 'Token tidak valid atau sudah kedaluwarsa' }
   }
 
   let newUrl: string
@@ -241,6 +238,27 @@ export async function updateGuestDestination(
     }
   } else {
     return { success: false, error: 'Input tidak valid' }
+  }
+
+  if (newUrl === qr.destinationUrl) {
+    return { success: true, destinationUrl: qr.destinationUrl }
+  }
+
+  // Cek batas 10 perubahan/QR/hari
+  const since = new Date(Date.now() - 24 * 60 * 60 * 1000)
+  const [{ dailyChanges }] = await db
+    .select({ dailyChanges: count() })
+    .from(qrDestinationHistory)
+    .where(
+      and(
+        eq(qrDestinationHistory.qrId, qr.id),
+        eq(qrDestinationHistory.actor, 'guest'),
+        gte(qrDestinationHistory.createdAt, since)
+      )
+    )
+
+  if (Number(dailyChanges) >= MAX_DAILY_CHANGES) {
+    return { success: false, error: 'Batas perubahan harian tercapai' }
   }
 
   // Catat history

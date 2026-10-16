@@ -61,13 +61,30 @@ if (!process.env.DATABASE_URL) {
   }
 }
 
-const connectionString = process.env.DATABASE_URL
+const DATABASE_ERROR = 'DATABASE_URL environment variable is not set'
 
-if (!connectionString) {
-  throw new Error('DATABASE_URL environment variable is not set')
+function createDb(connectionString: string) {
+  const sql = neon(connectionString)
+  return drizzle(sql, { schema })
 }
 
-const sql = neon(connectionString)
-export const db = drizzle(sql, { schema })
+type DB = ReturnType<typeof createDb>
 
-export type DB = typeof db
+/**
+ * Next.js mengimpor route API saat build untuk mengumpulkan metadata. Jangan
+ * konek/throw di import-time; tanpa env, error tetap muncul ketika query nyata
+ * dijalankan pada runtime.
+ */
+function createUnavailableDb(): DB {
+  return new Proxy(Object.create(null), {
+    get() {
+      throw new Error(DATABASE_ERROR)
+    },
+  }) as DB
+}
+
+export const db: DB = process.env.DATABASE_URL
+  ? createDb(process.env.DATABASE_URL)
+  : createUnavailableDb()
+
+export type { DB }

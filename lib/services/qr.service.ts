@@ -16,7 +16,7 @@ import { eq, and, or, ilike, isNull, desc, asc, count, sql, inArray } from 'driz
 import { unstable_cache, revalidateTag } from 'next/cache'
 import { generateCode8, normalizeCode8, isValidCode8, formatCode8 } from '@/lib/qr/slug'
 import { hashResetCode } from '@/lib/security/hash'
-import type { QrDto } from '@/lib/contracts'
+import type { QrDto, QrHistoryEntry } from '@/lib/contracts'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -132,6 +132,29 @@ export async function getQrBySlug(slug: string): Promise<QrCode | null> {
 export async function getQrById(id: string): Promise<QrCode | null> {
   const rows = await db.select().from(qrCodes).where(eq(qrCodes.id, id)).limit(1)
   return rows[0] ?? null
+}
+
+export async function getQrHistory(qrId: string, defaultUrl: string): Promise<QrHistoryEntry[]> {
+  const rows = await db
+    .select({
+      id: qrDestinationHistory.id,
+      oldUrl: qrDestinationHistory.oldUrl,
+      newUrl: qrDestinationHistory.newUrl,
+      actor: qrDestinationHistory.actor,
+      createdAt: qrDestinationHistory.createdAt,
+    })
+    .from(qrDestinationHistory)
+    .where(eq(qrDestinationHistory.qrId, qrId))
+    .orderBy(desc(qrDestinationHistory.createdAt))
+    .limit(50)
+
+  return rows.map((row) => ({
+    id: row.id,
+    oldUrl: row.oldUrl ?? defaultUrl,
+    newUrl: row.newUrl,
+    actor: row.actor,
+    createdAt: row.createdAt,
+  }))
 }
 
 export async function listQrs(filters: ListQrFilters = {}): Promise<{
@@ -271,8 +294,16 @@ export async function softDeleteQr(id: string): Promise<void> {
 }
 
 export async function restoreQr(id: string): Promise<void> {
+  const qr = await getQrById(id)
+  if (!qr) throw new Error('QR tidak ditemukan')
+  if (!qr.deletedAt) throw new Error('QR tidak terhapus')
+
+  const retentionCutoff = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+  if (qr.deletedAt < retentionCutoff) throw new Error('Masa pemulihan QR sudah berakhir')
+
   await db.update(qrCodes).set({ deletedAt: null }).where(eq(qrCodes.id, id))
   await db.insert(auditLog).values({ actor: 'admin', action: 'qr.restore', qrId: id })
+  revalidateTag(`qr:${qr.slug}`)
   revalidateTag('qr-all')
 }
 

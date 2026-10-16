@@ -6,6 +6,7 @@ import { extractGeoFromHeaders, getClientIp } from '@/lib/analytics/geo'
 import { hashIp } from '@/lib/security/hash'
 import { isValidCode8, normalizeCode8 } from '@/lib/qr/slug'
 import { statusDocument } from '@/components/status/status-document'
+import { validateDestinationUrl } from '@/lib/security/url-validate'
 
 function errorPage(
   state: 'not-found' | 'paused' | 'expired' | 'error',
@@ -45,10 +46,13 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
   if (qr.expiresAt && new Date(qr.expiresAt) < new Date()) {
     if (qr.expiredUrl) {
-      return NextResponse.redirect(qr.expiredUrl, {
-        status: 302,
-        headers: { 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex', 'Referrer-Policy': 'no-referrer' },
-      })
+      const validation = validateDestinationUrl(qr.expiredUrl)
+      if (validation.valid) {
+        return NextResponse.redirect(validation.normalizedUrl!, {
+          status: 302,
+          headers: { 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex', 'Referrer-Policy': 'no-referrer' },
+        })
+      }
     }
     return errorPage('expired', 410)
   }
@@ -77,7 +81,12 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     }).catch(() => {})
   })
 
-  return NextResponse.redirect(qr.destinationUrl, {
+  const destinationValidation = validateDestinationUrl(qr.destinationUrl)
+  if (!destinationValidation.valid) {
+    return errorPage('error', 503)
+  }
+
+  return NextResponse.redirect(destinationValidation.normalizedUrl!, {
     status: 302,
     headers: { 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex', 'Referrer-Policy': 'no-referrer' },
   })
