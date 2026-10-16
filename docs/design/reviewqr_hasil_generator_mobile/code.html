@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{'ink-900':'#0F172A','secondary-fixed-dim':'#b4c6f4','danger-bg':'#FDECEC','tertiary-container':'#ad4000','navy-900':'#0A1F44','on-primary-container':'#d8e0ff','blue-600':'#1D5BD6','surface':'#faf8ff','secondary':'#4c5e86','primary':'#0043af','surface-bright':'#faf8ff','surface-container-low':'#f2f3ff','tertiary':'#863000','background':'#faf8ff','primary-fixed-dim':'#b3c5ff','slate-400':'#94A3B8','outline-variant':'#c3c6d6','on-surface':'#131b2e','on-tertiary':'#ffffff','on-tertiary-fixed':'#360f00','primary-container':'#1d5bd6','inverse-primary':'#b3c5ff','inverse-on-surface':'#eef0ff','secondary-container':'#bccefd','slate-600':'#475569','surface-tint':'#1255d0','tertiary-fixed-dim':'#ffb597','error-container':'#ffdad6','on-tertiary-container':'#ffd8ca','inverse-surface':'#283044','star-yellow':'#F5B301','outline':'#737685','on-secondary-container':'#46577f','on-secondary-fixed':'#041a3f','surface-container-lowest':'#ffffff','blue-100':'#DCE8FB','on-secondary':'#ffffff','primary-fixed':'#dbe1ff','on-primary-fixed':'#001849','on-surface-variant':'#434654','surface-container':'#eaedff','on-primary':'#ffffff','blue-700':'#1648B8','blue-50':'#F2F7FE','on-error-container':'#93000a','blue-500':'#3B7BEA','danger':'#DC2626','tertiary-fixed':'#ffdbcd','on-background':'#131b2e','warning-bg':'#FEF3C7','on-secondary-fixed-variant':'#34466d','success-bg':'#E8F7EE','success':'#16A34A','surface-variant':'#dae2fd','surface-container-high':'#e2e7ff','error':'#ba1a1a','border':'#DCE6F5','secondary-fixed':'#d9e2ff','on-tertiary-fixed-variant':'#7e2c00','surface-dim':'#d2d9f4','on-error':'#ffffff','surface-container-highest':'#dae2fd','warning':'#B45309','on-primary-fixed-variant':'#003fa4'},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{'space-xl':"32px",'space-2xl':"48px",'space-xs':"4px",margin:"32px",'space-lg':"24px",gutter:"24px",'space-md':"16px",'space-sm':"8px"},fontFamily:{'body-lg':["Inter"],'headline-xl':["Plus Jakarta Sans"],'body-md':["Inter"],'headline-md':["Plus Jakarta Sans"],'label-md':["Plus Jakarta Sans"],'headline-xs':["Plus Jakarta Sans"],'headline-sm':["Plus Jakarta Sans"],'label-sm':["Plus Jakarta Sans"],'headline-lg':["Plus Jakarta Sans"],'body-sm':["Inter"]},fontSize:{'body-lg':["18px",{lineHeight:"28px",fontWeight:"400"}],'headline-xl':["40px",{lineHeight:"48px",fontWeight:"700"}],'body-md':["14px",{lineHeight:"20px",fontWeight:"400"}],'headline-md':["24px",{lineHeight:"32px",fontWeight:"600"}],'label-md':["14px",{lineHeight:"20px",fontWeight:"500"}],'headline-xs':["16px",{lineHeight:"24px",fontWeight:"600"}],'headline-sm':["20px",{lineHeight:"28px",fontWeight:"600"}],'label-sm':["12px",{lineHeight:"16px",fontWeight:"500"}],'headline-lg':["32px",{lineHeight:"40px",fontWeight:"700"}],'body-sm':["12px",{lineHeight:"16px",fontWeight:"400"}]}}}};</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary text-[28px]">qr_code_2</span><span class="font-headline-sm text-on-surface">ReviewQR</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex flex-col relative w-full px-gutter pt-16 pb-24 bg-surface flex-1"><div class="flex flex-col w-full pb-12">
+<!-- Top App Bar context navigation -->
+<div class="flex items-center justify-between mb-space-md pt-space-sm">
+<button class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">qr_code_2</span>
+<span class="font-headline-sm text-on-surface">ReviewQR</span>
+</div>
+<div class="w-10"></div>
+</div>
+<!-- Success Green Banner -->
+<div class="bg-success-bg text-success p-space-md rounded-xl flex items-center gap-space-md mb-space-lg shadow-sm">
+<div class="w-10 h-10 rounded-full bg-success text-on-success flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-xs text-success">Berhasil Dibuat</span>
+<span class="text-body-sm text-success font-medium">Link review berhasil dibuat dan siap dibagikan.</span>
+</div>
+</div>
+<!-- Business Confirmation Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl mb-space-lg shadow-[0_8px_24px_rgba(10,31,68,0.08)]">
+<div class="flex items-start justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">storefront</span>
+</div>
+<div>
+<h2 class="font-headline-xs text-on-surface">Warung Sate Pak Slamet</h2>
+<p class="text-body-sm text-on-surface-variant">Jl. Ijen No. 24, Klojen, Kota Malang</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-success text-[24px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<span class="text-body-sm text-outline">Bukan lokasi ini?</span>
+<button class="text-body-sm font-label-md text-blue-600 hover:text-blue-700 flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+        Cari ulang
+      </button>
+</div>
+</div>
+<!-- Error State Example Callout (as requested) -->
+<div class="bg-danger-bg text-danger p-space-md rounded-xl flex items-start gap-space-md mb-space-lg shadow-sm">
+<span class="material-symbols-outlined text-[20px] shrink-0 mt-0.5">error</span>
+<div class="flex flex-col">
+<span class="font-headline-xs text-danger">Peringatan Pencarian</span>
+<span class="text-body-sm">Bisnis tidak ditemukan di titik koordinat tersebut. Pastikan nama jalan sudah benar.</span>
+</div>
+</div>
+<!-- Candidate List State Example -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl mb-space-lg shadow-[0_8px_24px_rgba(10,31,68,0.08)]">
+<h3 class="font-headline-xs text-on-surface mb-space-md">Pilih Kandidat Lokasi</h3>
+<div class="flex flex-col gap-space-sm mb-space-md">
+<!-- Selected Row -->
+<label class="flex items-center justify-between p-space-md rounded-xl bg-blue-100 cursor-pointer transition-all">
+<div class="flex items-center gap-space-md">
+<div class="w-5 h-5 rounded-full border-2 border-blue-600 flex items-center justify-center bg-blue-600">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Warung Sate Pak Slamet Asli</p>
+<p class="text-body-sm text-on-surface-variant">Jl. Ijen No. 24</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-blue-600">check_circle</span>
+</label>
+<!-- Unselected Row -->
+<label class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-all">
+<div class="flex items-center gap-space-md">
+<div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center"></div>
+<div>
+<p class="font-label-md text-on-surface">Sate Madura Pak Slamet</p>
+<p class="text-body-sm text-on-surface-variant">Jl. Wilis No. 5</p>
+</div>
+</div>
+</label>
+</div>
+<button class="w-full h-12 bg-blue-600 hover:bg-blue-700 text-on-primary font-label-md rounded-xl flex items-center justify-center gap-space-xs transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">check</span>
+      Gunakan lokasi ini
+    </button>
+</div>
+<!-- Review Link Field -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl mb-space-lg shadow-[0_8px_24px_rgba(10,31,68,0.08)]">
+<label class="block font-label-md text-on-surface mb-space-xs">Link Review Google Maps</label>
+<div class="flex items-center bg-surface-container-low rounded-xl px-space-md h-12 mb-space-md">
+<input class="bg-transparent flex-1 text-on-surface text-body-md outline-none truncate" readonly="" type="text" value="https://g.page/r/review-sate-pak-slamet/review"/>
+<span class="material-symbols-outlined text-outline text-[18px] ml-space-xs">link</span>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<button class="h-12 bg-blue-600 hover:bg-blue-700 text-on-primary font-label-md rounded-xl flex items-center justify-center gap-space-xs transition-all shadow-sm" onclick="copyLink(this)">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+        Salin Link
+      </button>
+<a class="h-12 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md rounded-xl flex items-center justify-center gap-space-xs transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+        Buka untuk Tes
+      </a>
+</div>
+</div>
+<!-- QR Preview Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl mb-space-lg shadow-[0_8px_24px_rgba(10,31,68,0.08)] flex flex-col items-center">
+<div class="w-full flex items-center justify-between mb-space-md">
+<h3 class="font-headline-xs text-on-surface">QR Code Toko</h3>
+<span class="px-3 py-1 rounded-full bg-success-bg text-success text-label-sm font-medium">Aktif &amp; Siap Cetak</span>
+</div>
+<!-- 180px QR code on white -->
+<div class="w-[180px] h-[180px] bg-white p-space-sm rounded-xl shadow-sm flex items-center justify-center mb-space-md border border-border">
+<svg class="w-full h-full text-ink-900" fill="currentColor" viewbox="0 0 24 24">
+<path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm12-2h2v2h-2v-2zm4 0h2v2h-2v-2zm-4 4h2v2h-2v-2zm4 0h2v2h-2v-2zm-2-2h2v2h-2v-2zm0 4h2v2h-2v-2z"></path>
+</svg>
+</div>
+<p class="text-body-sm text-on-surface-variant text-center mb-space-md">Pindai untuk menulis ulasan</p>
+<div class="grid grid-cols-2 gap-space-md w-full mb-space-md">
+<button class="h-12 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md rounded-xl flex items-center justify-center gap-space-xs transition-all">
+<span class="material-symbols-outlined text-[18px]">download</span>
+        Unduh PNG
+      </button>
+<button class="h-12 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md rounded-xl flex items-center justify-center gap-space-xs transition-all">
+<span class="material-symbols-outlined text-[18px]">image</span>
+        Unduh SVG
+      </button>
+</div>
+<a class="text-body-sm font-label-md text-blue-600 hover:text-blue-700 flex items-center gap-space-xs" href="#">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+      Buat QR dinamis (bisa diganti tujuannya)
+    </a>
+</div>
+<!-- Message Templates -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_8px_24px_rgba(10,31,68,0.08)]">
+<div class="flex items-center justify-between mb-space-md">
+<h3 class="font-headline-xs text-on-surface">Template Pesan</h3>
+<span class="text-body-sm text-outline">Siap Kirim</span>
+</div>
+<!-- Tabs -->
+<div class="flex bg-surface-container-low p-1 rounded-xl mb-space-md">
+<button class="flex-1 py-2 text-label-sm font-medium rounded-lg bg-primary text-on-primary shadow-sm flex items-center justify-center gap-space-xs transition-all">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+        WhatsApp
+      </button>
+<button class="flex-1 py-2 text-label-sm font-medium rounded-lg text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-space-xs transition-all">
+<span class="material-symbols-outlined text-[16px]">sms</span>
+        SMS / Email
+      </button>
+</div>
+<!-- Template Content Box -->
+<div class="bg-surface-container-low p-space-md rounded-xl mb-space-md">
+<p class="text-body-sm text-on-surface leading-relaxed">
+        Halo Kak! Terima kasih sudah mampir ke Warung Sate Pak Slamet. Boleh minta waktu 1 menit untuk beri ulasan bintang 5 di link berikut ya? <br/><br/>👉 https://g.page/r/review-sate-pak-slamet/review<br/><br/>Ulasan Kakak sangat berarti bagi kemajuan warung kami. Terima kasih banyak! 🙏
+      </p>
+</div>
+<button class="w-full h-12 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md rounded-xl flex items-center justify-center gap-space-xs transition-all" onclick="copyTemplate(this)">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+      Salin template
+    </button>
+</div>
+</div>
+<script>
+  function copyLink(btn) {
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span> Tersalin!';
+    btn.classList.add('bg-success', 'text-on-success');
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.classList.remove('bg-success', 'text-on-success');
+    }, 2000);
+  }
+
+  function copyTemplate(btn) {
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span> Template Disalin!';
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+    }, 2000);
+  }
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="bg-primary-container text-on-primary-container font-bold"><div class="flex justify-around items-center h-20 px-space-md"><a aria-current="page" class="flex flex-col items-center justify-center gap-space-xs w-16 h-16 transition-all rounded-xl bg-primary-container text-on-primary-container font-bold" data-path="dashboard" href="#"><span class="material-symbols-outlined">dashboard</span><span class="text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center gap-space-xs w-16 h-16 text-on-surface-variant hover:text-on-surface transition-all rounded-xl" data-path="qr-codes" href="#"><span class="material-symbols-outlined">qr_code</span><span class="text-label-sm">QR Codes</span></a><a class="flex flex-col items-center justify-center gap-space-xs w-16 h-16 text-on-surface-variant hover:text-on-surface transition-all rounded-xl" data-path="reviews" href="#"><span class="material-symbols-outlined">star</span><span class="text-label-sm">Reviews</span></a><a class="flex flex-col items-center justify-center gap-space-xs w-16 h-16 text-on-surface-variant hover:text-on-surface transition-all rounded-xl" data-path="settings" href="#"><span class="material-symbols-outlined">settings</span><span class="text-label-sm">Settings</span></a></div></nav></body></html>

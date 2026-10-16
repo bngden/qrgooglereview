@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    name: lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+        env:
+          # Build hanya perlu placeholder — nilai rahasia diatur di Vercel.
+          JWT_SECRET: ci-placeholder-jwt-secret-minimum-32-characters
+          SCAN_SALT: ci-placeholder-scan-salt-minimum-32-characters
+          APP_URL: https://example.com
+
+      - name: Audit dependensi
+        run: npm audit --audit-level=high

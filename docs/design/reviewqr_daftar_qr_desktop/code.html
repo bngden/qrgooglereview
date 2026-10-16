@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {"colors": {"surface-container": "#eaedff", "inverse-surface": "#283044", "surface-container-low": "#f2f3ff", "ink-900": "#0F172A", "on-secondary": "#ffffff", "surface-bright": "#faf8ff", "slate-400": "#94A3B8", "inverse-primary": "#b3c5ff", "danger": "#DC2626", "primary-container": "#1d5bd6", "outline-variant": "#c3c6d6", "on-tertiary-fixed": "#360f00", "danger-bg": "#FDECEC", "warning-bg": "#FEF3C7", "blue-600": "#1D5BD6", "success": "#16A34A", "blue-700": "#1648B8", "tertiary-container": "#ad4000", "on-secondary-fixed": "#041a3f", "primary": "#0043af", "success-bg": "#E8F7EE", "on-tertiary": "#ffffff", "primary-fixed-dim": "#b3c5ff", "surface-variant": "#dae2fd", "on-primary": "#ffffff", "surface-container-lowest": "#ffffff", "slate-600": "#475569", "tertiary": "#863000", "on-secondary-fixed-variant": "#34466d", "secondary-fixed": "#d9e2ff", "blue-50": "#F2F7FE", "tertiary-fixed-dim": "#ffb597", "on-surface": "#131b2e", "on-primary-fixed": "#001849", "error-container": "#ffdad6", "blue-100": "#DCE8FB", "inverse-on-surface": "#eef0ff", "primary-fixed": "#dbe1ff", "star-yellow": "#F5B301", "border": "#DCE6F5", "on-primary-container": "#d8e0ff", "surface-dim": "#d2d9f4", "background": "#faf8ff", "on-tertiary-fixed-variant": "#7e2c00", "secondary": "#4c5e86", "error": "#ba1a1a", "secondary-fixed-dim": "#b4c6f4", "on-primary-fixed-variant": "#003fa4", "on-error": "#ffffff", "tertiary-fixed": "#ffdbcd", "surface": "#faf8ff", "on-error-container": "#93000a", "warning": "#B45309", "on-background": "#131b2e", "surface-container-high": "#e2e7ff", "on-tertiary-container": "#ffd8ca", "on-secondary-container": "#46577f", "navy-900": "#0A1F44", "outline": "#737685", "blue-500": "#3B7BEA", "surface-container-highest": "#dae2fd", "secondary-container": "#bccefd", "on-surface-variant": "#434654", "surface-tint": "#1255d0"}, "borderRadius": {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}, "spacing": {"space-sm": "8px", "space-xs": "4px", "space-md": "16px", "margin": "32px", "space-lg": "24px", "space-2xl": "48px", "gutter": "24px", "space-xl": "32px"}, "fontFamily": {"body-lg": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-xs": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-md": ["Inter"]}, "fontSize": {"body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "fontWeight": "700"}], "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}], "headline-xs": ["16px", {"lineHeight": "24px", "fontWeight": "600"}], "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}], "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}], "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}], "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]}}}};</script><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col pt-space-lg pb-space-lg"><div class="px-space-lg mb-space-xl flex items-center gap-space-md"><span class="material-symbols-outlined text-primary text-[28px]">qr_code_2</span><span class="font-headline-md text-on-surface tracking-tight">ReviewQR</span></div><nav class="flex-1 px-space-md space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined mr-space-md">dashboard</span>Dashboard</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="qr-codes" href="#"><span class="material-symbols-outlined mr-space-md">qr_code</span>QR Codes</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="reviews" href="#"><span class="material-symbols-outlined mr-space-md">star</span>Reviews</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="analytics" href="#"><span class="material-symbols-outlined mr-space-md">monitoring</span>Analytics</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined mr-space-md">settings</span>Settings</a></nav><div class="px-space-lg pt-space-md border-t border-border"><div class="flex items-center gap-space-md"><div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">person</span></div><div class="flex-1 min-w-0"><p class="text-label-md text-on-surface truncate">Acme Corp</p><p class="text-body-sm text-on-surface-variant truncate">admin@acme.co</p></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-2xl"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-on-surface-variant">search</span><input class="bg-surface-container-low border border-border rounded-lg px-space-md py-space-sm text-body-md text-on-surface placeholder:text-outline w-80 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search campaigns, reviews..." type="text"/></div><div class="flex items-center gap-space-lg"><button class="relative p-space-sm text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-danger rounded-full"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full pb-24">
+<!-- Page Header & Actions -->
+<div class="flex flex-row justify-between items-end px-space-2xl pt-space-xl mb-space-xl">
+<div>
+<h1 class="font-headline-xl text-on-surface tracking-tight mb-space-xs">Daftar QR</h1>
+<p class="text-body-lg text-on-surface-variant">Kelola semua QR dinamis yang sudah dibuat.</p>
+</div>
+<div class="flex items-center gap-space-md">
+<button class="px-space-lg py-space-md rounded-lg border border-border bg-surface text-ink-900 font-label-md hover:bg-blue-50 transition-all flex items-center gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+        Ekspor CSV
+      </button>
+<button class="px-space-lg py-space-md rounded-lg bg-blue-600 text-on-primary font-label-md hover:bg-blue-700 transition-all flex items-center gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+        + Buat QR
+      </button>
+</div>
+</div>
+<!-- Main Content Layout -->
+<div class="px-space-2xl flex flex-col gap-space-xl">
+<!-- Toolbar Card -->
+<div class="bg-white rounded-xl p-space-lg shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md flex-1 min-w-[320px]">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border border-border rounded-lg pl-12 pr-space-md py-space-sm text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Cari nama, bisnis, atau ID..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-wrap">
+<!-- Status Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-low border border-border rounded-lg px-space-md py-space-sm pr-10 text-label-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+<option>Status: Semua Status</option>
+<option>Aktif</option>
+<option>Dijeda</option>
+<option>Kedaluwarsa</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[20px]">expand_more</span>
+</div>
+<!-- Type Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-low border border-border rounded-lg px-space-md py-space-sm pr-10 text-label-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+<option>Tipe: Semua Tipe</option>
+<option>Review Google</option>
+<option>URL Langsung</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[20px]">expand_more</span>
+</div>
+<!-- Toggle Checkbox -->
+<label class="flex items-center gap-space-sm cursor-pointer select-none">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-border" type="checkbox"/>
+<span class="text-label-md text-on-surface-variant">Tampilkan terhapus</span>
+</label>
+</div>
+</div>
+<!-- Bulk Action Bar (Mockup State: 3 selected) -->
+<div class="bg-blue-100 border border-blue-500/20 rounded-xl px-space-lg py-space-md flex items-center justify-between text-blue-700 animate-fadeIn">
+<div class="flex items-center gap-space-md">
+<span class="w-6 h-6 rounded bg-primary text-on-primary flex items-center justify-center font-label-sm">3</span>
+<span class="font-headline-xs text-blue-900">3 dipilih</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-space-sm rounded-lg hover:bg-blue-200/60 font-label-md transition-all">Jeda</button>
+<button class="px-space-md py-space-sm rounded-lg hover:bg-blue-200/60 font-label-md transition-all">Aktifkan</button>
+<button class="px-space-md py-space-sm rounded-lg hover:bg-blue-200/60 font-label-md transition-all">Arsipkan</button>
+<button class="px-space-md py-space-sm rounded-lg hover:bg-danger-bg text-danger font-label-md transition-all">Hapus</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="bg-white rounded-xl shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface font-headline-xs border-b border-border">
+<th class="p-space-md w-12 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-border" type="checkbox"/>
+</th>
+<th class="py-space-md px-space-md">Nama QR &amp; Bisnis</th>
+<th class="py-space-md px-space-md">ID</th>
+<th class="py-space-md px-space-md">Tipe</th>
+<th class="py-space-md px-space-md">Tujuan</th>
+<th class="py-space-md px-space-md">Status</th>
+<th class="py-space-md px-space-md text-right">Scan</th>
+<th class="py-space-md px-space-md">Terakhir Dipindai</th>
+<th class="py-space-md px-space-md">Dibuat</th>
+<th class="p-space-md w-12 text-center"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border text-body-md">
+<!-- Row 1 (Selected) -->
+<tr class="bg-blue-100 hover:bg-blue-100/80 transition-colors">
+<td class="p-space-md text-center">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary border-border" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-headline-xs text-on-surface">Kopi Tuku Dieng</div>
+<div class="text-body-sm text-slate-600">Cabang Malang Kota</div>
+</td>
+<td class="py-space-md px-space-md font-mono text-body-sm text-outline">7K3M-9XQ2</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-primary-fixed text-on-primary-fixed">Review Google</span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant max-w-[200px] truncate">
+<div class="flex items-center gap-space-xs">
+<span class="truncate">https://g.page/r/tuku-dieng/review</span>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-success-bg text-success">Aktif</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-xs text-on-surface">1,428</td>
+<td class="py-space-md px-space-md text-slate-600">2 jam lalu</td>
+<td class="py-space-md px-space-md text-slate-600">12 Jan 2024</td>
+<td class="p-space-md text-center relative">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 (Selected) -->
+<tr class="bg-blue-100 hover:bg-blue-100/80 transition-colors">
+<td class="p-space-md text-center">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary border-border" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-headline-xs text-on-surface">Warung Sate Pak Slamet</div>
+<div class="text-body-sm text-slate-600">Pusat Jogja</div>
+</td>
+<td class="py-space-md px-space-md font-mono text-body-sm text-outline">4L9P-2W1K</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-primary-fixed text-on-primary-fixed">Review Google</span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant max-w-[200px] truncate">
+<div class="flex items-center gap-space-xs">
+<span class="truncate">https://g.page/r/sate-slamet/review</span>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-success-bg text-success">Aktif</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-xs text-on-surface">892</td>
+<td class="py-space-md px-space-md text-slate-600">5 jam lalu</td>
+<td class="py-space-md px-space-md text-slate-600">14 Jan 2024</td>
+<td class="p-space-md text-center">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 (Selected) -->
+<tr class="bg-blue-100 hover:bg-blue-100/80 transition-colors">
+<td class="p-space-md text-center">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary border-border" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-headline-xs text-on-surface">Hotel Santika Premiere</div>
+<div class="text-body-sm text-slate-600">Lobby &amp; Concierge</div>
+</td>
+<td class="py-space-md px-space-md font-mono text-body-sm text-outline">9H8B-5M7Q</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-secondary-fixed text-on-secondary-fixed-variant">URL Langsung</span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant max-w-[200px] truncate">
+<div class="flex items-center gap-space-xs">
+<span class="truncate">https://santika.com/promo-spa-2024</span>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-warning-bg text-warning">Dijeda</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-xs text-on-surface">3,105</td>
+<td class="py-space-md px-space-md text-slate-600">1 hari lalu</td>
+<td class="py-space-md px-space-md text-slate-600">20 Des 2023</td>
+<td class="p-space-md text-center">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 4 (Normal with open Kebab Menu) -->
+<tr class="hover:bg-blue-50 transition-colors relative">
+<td class="p-space-md text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-border" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-headline-xs text-on-surface">Batik Keris Store</div>
+<div class="text-body-sm text-slate-600">Malioboro Gallery</div>
+</td>
+<td class="py-space-md px-space-md font-mono text-body-sm text-outline">2X1Z-8R4N</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-primary-fixed text-on-primary-fixed">Review Google</span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant max-w-[200px] truncate">
+<div class="flex items-center gap-space-xs">
+<span class="truncate">https://g.page/r/batik-keris/review</span>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-success-bg text-success">Aktif</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-xs text-on-surface">640</td>
+<td class="py-space-md px-space-md text-slate-600">3 jam lalu</td>
+<td class="py-space-md px-space-md text-slate-600">02 Jan 2024</td>
+<td class="p-space-md text-center relative">
+<button class="p-1 rounded bg-surface-container text-on-surface"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+<!-- Kebab Menu Popup -->
+<div class="absolute right-12 top-10 w-48 bg-white rounded-xl shadow-xl border border-border py-space-xs z-50 text-left">
+<button class="w-full px-space-md py-space-sm text-label-md text-on-surface hover:bg-blue-50 flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px]">edit</span>Edit
+                  </button>
+<button class="w-full px-space-md py-space-sm text-label-md text-on-surface hover:bg-blue-50 flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px]">link</span>Salin URL QR
+                  </button>
+<button class="w-full px-space-md py-space-sm text-label-md text-on-surface hover:bg-blue-50 flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px]">qr_code_2</span>Unduh QR
+                  </button>
+<button class="w-full px-space-md py-space-sm text-label-md text-on-surface hover:bg-blue-50 flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>Duplikat
+                  </button>
+<button class="w-full px-space-md py-space-sm text-label-md text-on-surface hover:bg-blue-50 flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px]">pause</span>Jeda
+                  </button>
+<button class="w-full px-space-md py-space-sm text-label-md text-on-surface hover:bg-blue-50 flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px]">archive</span>Arsipkan
+                  </button>
+<div class="h-px bg-border my-1"></div>
+<button class="w-full px-space-md py-space-sm text-label-md text-danger hover:bg-danger-bg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px]">delete</span>Hapus
+                  </button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-blue-50 transition-colors">
+<td class="p-space-md text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-border" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-headline-xs text-on-surface">Ayam Geprek Bu Rum</div>
+<div class="text-body-sm text-slate-600">Cabang Pogung</div>
+</td>
+<td class="py-space-md px-space-md font-mono text-body-sm text-outline">5C7T-3K9W</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-primary-fixed text-on-primary-fixed">Review Google</span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant max-w-[200px] truncate">
+<div class="flex items-center gap-space-xs">
+<span class="truncate">https://g.page/r/geprek-bu-rum/review</span>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-error-container text-error">Kedaluwarsa</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-xs text-on-surface">4,510</td>
+<td class="py-space-md px-space-md text-slate-600">2 minggu lalu</td>
+<td class="py-space-md px-space-md text-slate-600">10 Nov 2023</td>
+<td class="p-space-md text-center">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-blue-50 transition-colors">
+<td class="p-space-md text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-border" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-headline-xs text-on-surface">Toko Buku Gramedia Malang</div>
+<div class="text-body-sm text-slate-600">Kasir Utama</div>
+</td>
+<td class="py-space-md px-space-md font-mono text-body-sm text-outline">8M2N-4L6P</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-secondary-fixed text-on-secondary-fixed-variant">URL Langsung</span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant max-w-[200px] truncate">
+<div class="flex items-center gap-space-xs">
+<span class="truncate">https://gramedia.com/promo-literasi</span>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-success-bg text-success">Aktif</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-xs text-on-surface">1,120</td>
+<td class="py-space-md px-space-md text-slate-600">4 jam lalu</td>
+<td class="py-space-md px-space-md text-slate-600">05 Jan 2024</td>
+<td class="p-space-md text-center">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-blue-50 transition-colors">
+<td class="p-space-md text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-border" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-headline-xs text-on-surface">Bakso President</div>
+<div class="text-body-sm text-slate-600">Depan Rel Kereta</div>
+</td>
+<td class="py-space-md px-space-md font-mono text-body-sm text-outline">3K5R-7X8V</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-primary-fixed text-on-primary-fixed">Review Google</span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant max-w-[200px] truncate">
+<div class="flex items-center gap-space-xs">
+<span class="truncate">https://g.page/r/bakso-president/review</span>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-success-bg text-success">Aktif</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-xs text-on-surface">2,304</td>
+<td class="py-space-md px-space-md text-slate-600">30 min lalu</td>
+<td class="py-space-md px-space-md text-slate-600">18 Des 2023</td>
+<td class="p-space-md text-center">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 8 -->
+<tr class="hover:bg-blue-50 transition-colors">
+<td class="p-space-md text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-border" type="checkbox"/>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-headline-xs text-on-surface">Es Krim Oen</div>
+<div class="text-body-sm text-slate-600">Heritage Cafe Malang</div>
+</td>
+<td class="py-space-md px-space-md font-mono text-body-sm text-outline">6P1Q-9Z2M</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-primary-fixed text-on-primary-fixed">Review Google</span>
+</td>
+<td class="py-space-md px-space-md text-on-surface-variant max-w-[200px] truncate">
+<div class="flex items-center gap-space-xs">
+<span class="truncate">https://g.page/r/es-krim-oen/review</span>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-medium bg-warning-bg text-warning">Dijeda</span>
+</td>
+<td class="py-space-md px-space-md text-right font-headline-xs text-on-surface">945</td>
+<td class="py-space-md px-space-md text-slate-600">3 hari lalu</td>
+<td class="py-space-md px-space-md text-slate-600">11 Jan 2024</td>
+<td class="p-space-md text-center">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Pagination -->
+<div class="px-space-lg py-space-md bg-surface-container-low border-t border-border flex items-center justify-between">
+<span class="text-body-md text-slate-600">Menampilkan 1-25 dari 62</span>
+<div class="flex items-center gap-space-xs">
+<button class="w-9 h-9 rounded-lg border border-border bg-white flex items-center justify-center text-outline hover:bg-surface-container transition-all disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-primary text-on-primary font-label-md flex items-center justify-center shadow-sm">1</button>
+<button class="w-9 h-9 rounded-lg border border-border bg-white text-on-surface font-label-md flex items-center justify-center hover:bg-surface-container transition-all">2</button>
+<button class="w-9 h-9 rounded-lg border border-border bg-white text-on-surface font-label-md flex items-center justify-center hover:bg-surface-container transition-all">3</button>
+<button class="w-9 h-9 rounded-lg border border-border bg-white flex items-center justify-center text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Demonstration Section: Empty State Frame -->
+<div class="mt-space-2xl bg-white rounded-xl p-space-2xl shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 rounded-full bg-blue-50 text-primary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[32px]">qr_code_2</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-space-xs">Belum ada QR</h3>
+<p class="text-body-lg text-on-surface-variant mb-space-lg max-w-md">Buat QR pertamamu untuk mulai mengumpulkan ulasan pelanggan dan melacak analitik pemindaian.</p>
+<button class="px-space-lg py-space-md rounded-lg bg-blue-600 text-on-primary font-label-md hover:bg-blue-700 transition-all flex items-center gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+        + Buat QR
+      </button>
+</div>
+<!-- Demonstration Section: Loading Skeleton Frame -->
+<div class="bg-white rounded-xl p-space-lg shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border">
+<div class="flex items-center justify-between mb-space-lg">
+<div class="h-6 w-36 bg-surface-container-high rounded animate-pulse"></div>
+<div class="h-10 w-28 bg-surface-container-high rounded animate-pulse"></div>
+</div>
+<div class="space-y-space-md">
+<div class="h-12 w-full bg-surface-container-low rounded-lg animate-pulse"></div>
+<div class="h-12 w-full bg-surface-container-low rounded-lg animate-pulse"></div>
+<div class="h-12 w-full bg-surface-container-low rounded-lg animate-pulse"></div>
+<div class="h-12 w-full bg-surface-container-low rounded-lg animate-pulse"></div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

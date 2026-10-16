@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "warning-bg": "#FEF3C7",
+          "warning": "#B45309",
+          "slate-600": "#475569",
+          "tertiary": "#863000",
+          "success": "#16A34A",
+          "danger-bg": "#FDECEC",
+          "blue-100": "#DCE8FB",
+          "surface-bright": "#faf8ff",
+          "primary-fixed": "#dbe1ff",
+          "on-tertiary-container": "#ffd8ca",
+          "on-secondary-fixed": "#041a3f",
+          "on-background": "#131b2e",
+          "danger": "#DC2626",
+          "primary-container": "#1d5bd6",
+          "secondary-container": "#bccefd",
+          "inverse-surface": "#283044",
+          "on-tertiary-fixed-variant": "#7e2c00",
+          "tertiary-container": "#ad4000",
+          "on-secondary-container": "#46577f",
+          "on-primary-container": "#d8e0ff",
+          "tertiary-fixed-dim": "#ffb597",
+          "blue-50": "#F2F7FE",
+          "blue-600": "#1D5BD6",
+          "surface-container-low": "#f2f3ff",
+          "on-error-container": "#93000a",
+          "surface-container-lowest": "#ffffff",
+          "surface": "#faf8ff",
+          "surface-container": "#eaedff",
+          "on-tertiary-fixed": "#360f00",
+          "border": "#DCE6F5",
+          "outline": "#737685",
+          "on-primary-fixed-variant": "#003fa4",
+          "error": "#ba1a1a",
+          "blue-500": "#3B7BEA",
+          "navy-900": "#0A1F44",
+          "secondary-fixed": "#d9e2ff",
+          "star-yellow": "#F5B301",
+          "slate-400": "#94A3B8",
+          "on-error": "#ffffff",
+          "secondary": "#4c5e86",
+          "primary-fixed-dim": "#b3c5ff",
+          "inverse-on-surface": "#eef0ff",
+          "on-secondary-fixed-variant": "#34466d",
+          "on-primary": "#ffffff",
+          "on-secondary": "#ffffff",
+          "blue-700": "#1648B8",
+          "surface-variant": "#dae2fd",
+          "secondary-fixed-dim": "#b4c6f4",
+          "surface-tint": "#1255d0",
+          "outline-variant": "#c3c6d6",
+          "surface-container-high": "#e2e7ff",
+          "surface-dim": "#d2d9f4",
+          "inverse-primary": "#b3c5ff",
+          "success-bg": "#E8F7EE",
+          "primary": "#0043af",
+          "surface-container-highest": "#dae2fd",
+          "tertiary-fixed": "#ffdbcd",
+          "on-surface-variant": "#434654",
+          "on-tertiary": "#ffffff",
+          "background": "#faf8ff",
+          "ink-900": "#0F172A",
+          "on-surface": "#131b2e",
+          "on-primary-fixed": "#001849",
+          "error-container": "#ffdad6"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-2xl": "48px",
+          "gutter": "24px",
+          "margin": "32px",
+          "space-sm": "8px",
+          "space-lg": "24px",
+          "space-md": "16px",
+          "space-xl": "32px",
+          "space-xs": "4px"
+        },
+        "fontFamily": {
+          "headline-md": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "label-md": [
+            "Plus Jakarta Sans"
+          ],
+          "label-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-xs": [
+            "Plus Jakarta Sans"
+          ]
+        },
+        "fontSize": {
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl": [
+            "40px",
+            {
+              "lineHeight": "48px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "500"
+            }
+          ],
+          "label-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-xs": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface-container-lowest font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-[72px] max-w-7xl mx-auto px-gutter flex items-center justify-between"><a class="flex items-center gap-space-sm" data-path="home" href="#"><div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[24px]">qr_code_2</span></div><span class="font-headline-sm text-on-surface tracking-tight">ReviewQR</span></a><nav class="hidden md:flex items-center gap-space-xl" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg"><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="cara-kerja" href="#">Cara Kerja</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="template-pesan" href="#">Template Pesan</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="faq" href="#">FAQ</a></nav><div><a class="inline-flex items-center justify-center px-space-lg py-space-sm rounded-lg bg-blue-600 text-on-primary font-label-md hover:bg-blue-700 transition-colors shadow-sm" data-path="masuk-admin" href="#">Masuk Admin</a></div></div></header><main class="w-full pt-[72px] bg-surface-container-lowest min-h-[calc(100vh-200px)]"><div class="flex flex-col w-full">
+<!-- Hero / Input Area -->
+<section class="relative w-full bg-surface-container-lowest pt-space-2xl pb-space-xl overflow-hidden">
+<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-blue-50 via-transparent to-transparent rounded-full blur-3xl pointer-events-none -mr-32 -mt-32"></div>
+<div class="max-w-7xl mx-auto px-gutter relative z-10">
+<div class="max-w-3xl mx-auto text-center mb-space-xl">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-blue-50 text-blue-600 font-label-sm mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+          Generator QR Google Review #1 di Indonesia
+        </div>
+<h1 class="font-headline-xl text-on-surface tracking-tight mb-space-md">
+          Ubah Pelanggan Jadi Ulasan Bintang 5 dalam Detik
+        </h1>
+<p class="font-body-lg text-on-surface-variant">
+          Buat kode QR khusus ulasan Google bisnis Anda secara instan. Tanpa ribet, langsung cetak, dan tingkatkan reputasi online toko Anda.
+        </p>
+</div>
+<!-- Main Input Box Simulator -->
+<div class="max-w-2xl mx-auto bg-white p-space-md rounded-2xl shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border">
+<div class="flex flex-col md:flex-row gap-space-sm">
+<div class="relative flex-1">
+<span class="absolute left-space-md top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">search</span>
+<input class="w-full pl-12 pr-space-md py-3 rounded-lg border border-border text-on-surface font-body-md focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all" placeholder="Masukkan nama bisnis atau alamat..." type="text" value="Warung Sate Pak Slamet, Malang"/>
+</div>
+<button class="px-space-xl py-3 bg-blue-600 text-on-primary font-label-md rounded-lg hover:bg-blue-700 transition-colors shadow-sm flex items-center justify-center gap-space-xs">
+<span>Buat QR</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 1: SUCCESS STATE -->
+<section class="w-full py-space-2xl bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-gutter">
+<!-- Section Header -->
+<div class="flex items-center justify-between mb-space-lg">
+<div>
+<span class="font-label-sm text-blue-600 uppercase tracking-wider">Tampilan Utama</span>
+<h2 class="font-headline-lg text-on-surface">Hasil Pembuatan QR &amp; Tautan</h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-success-bg text-success font-label-sm">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+            Status: Aktif
+          </span>
+</div>
+</div>
+<!-- Success Green Banner -->
+<div class="w-full bg-success-bg text-success px-space-lg py-space-md rounded-xl flex items-center gap-space-md mb-space-xl shadow-sm">
+<span class="material-symbols-outlined text-[24px]">task_alt</span>
+<span class="font-label-md">Link review berhasil dibuat. Silakan unduh QR atau salin tautan di bawah ini.</span>
+</div>
+<!-- Business Confirmation Card & Review Link Field in Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl mb-space-xl">
+<!-- Left: Business Info & Link Field (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-xl">
+<!-- Business Confirmation Card -->
+<div class="bg-white p-space-lg rounded-xl shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border flex items-start justify-between">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">storefront</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-on-surface mb-space-xs">Warung Sate Pak Slamet</h3>
+<p class="font-body-md text-on-surface-variant mb-space-sm">Jl. Ijen No. 24, Klojen, Kota Malang, Jawa Timur</p>
+<button class="text-blue-600 hover:text-blue-700 font-label-sm inline-flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+                  Bukan lokasi ini? Cari ulang
+                </button>
+</div>
+</div>
+<span class="material-symbols-outlined text-success">verified</span>
+</div>
+<!-- Review Link Field -->
+<div class="bg-white p-space-lg rounded-xl shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border">
+<label class="block font-label-md text-on-surface mb-space-sm">Tautan Langsung Google Review</label>
+<div class="flex flex-col sm:flex-row gap-space-sm">
+<input class="flex-1 px-space-md py-3 rounded-lg bg-surface-container-low border border-border text-on-surface-variant font-body-md focus:outline-none" readonly="" type="text" value="https://search.google.com/local/writereview?placeid=ChIJ..."/>
+<button class="px-space-lg py-3 bg-blue-600 text-on-primary font-label-md rounded-lg hover:bg-blue-700 transition-colors shadow-sm inline-flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+                Salin Link
+              </button>
+<button class="px-space-lg py-3 bg-white border border-border text-on-surface font-label-md rounded-lg hover:bg-blue-50 transition-colors inline-flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                Buka untuk Tes
+              </button>
+</div>
+</div>
+<!-- Message Templates -->
+<div class="bg-white p-space-lg rounded-xl shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border">
+<h3 class="font-headline-sm text-on-surface mb-space-md">Template Pesan Permintaan Ulasan</h3>
+<!-- Tabs -->
+<div class="flex flex-wrap gap-space-xs mb-space-lg border-b border-border pb-space-sm">
+<button class="px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container font-label-md transition-all">WhatsApp</button>
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-md transition-all">SMS</button>
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-md transition-all">Email</button>
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-md transition-all">Struk</button>
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-md transition-all">Tombol Website</button>
+</div>
+<!-- Template Content -->
+<div class="bg-surface-container-low p-space-md rounded-lg border border-border mb-space-md relative">
+<p class="font-body-md text-on-surface whitespace-pre-line">Halo Kak! Terima kasih sudah berkunjung ke Warung Sate Pak Slamet. Bagaimana pengalaman menikmati sate kami hari ini? 
+
+Bantu kami jadi lebih baik dengan memberikan ulasan singkat di link berikut ya:
+https://search.google.com/local/writereview?placeid=ChIJ...
+
+Ulasan Kakak sangat berarti bagi kemajuan warung kami. Terima kasih banyak! 🙏</p>
+</div>
+<div class="flex items-center justify-between">
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 bg-white border border-border text-on-surface font-label-md rounded-lg hover:bg-blue-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+                Salin template
+              </button>
+<span class="font-body-sm text-on-surface-variant">Bahasa Indonesia • Siap Pakai</span>
+</div>
+</div>
+<!-- Blue Info Callout -->
+<div class="bg-blue-50 text-blue-700 p-space-lg rounded-xl flex items-start gap-space-md border border-blue-100">
+<span class="material-symbols-outlined text-[24px] mt-0.5">info</span>
+<div>
+<h4 class="font-headline-xs mb-space-xs">Tips Sebelum Mencetak</h4>
+<p class="font-body-md">Pindai QR dengan ponsel sebelum dicetak untuk memastikan lokasi benar dan langsung mengarah ke halaman ulasan Google bisnis Anda.</p>
+</div>
+</div>
+</div>
+<!-- Right: QR Preview Card (5 cols, sticky) -->
+<div class="lg:col-span-5">
+<div class="sticky top-28 bg-white p-space-lg rounded-xl shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border text-center flex flex-col items-center">
+<div class="w-full flex items-center justify-between mb-space-md">
+<span class="font-label-md text-on-surface-variant">Pratinjau Kode QR</span>
+<span class="px-space-sm py-1 rounded bg-success-bg text-success font-label-sm">High-Res</span>
+</div>
+<!-- QR Code Box -->
+<div class="w-[220px] h-[220px] bg-white p-space-md rounded-2xl border border-border shadow-sm flex items-center justify-center mb-space-md relative group">
+<div class="absolute inset-2 border-2 border-dashed border-border rounded-xl pointer-events-none"></div>
+<!-- SVG QR Code Placeholder Graphic -->
+<svg class="w-48 h-48 text-ink-900" fill="currentColor" viewbox="0 0 24 24">
+<path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm8-2h8v8h-8V2zm2 2v4h4V4h-4zM2 12h8v8H2v-8zm2 2v4h4v-4H4zm10 2h2v2h-2v-2zm4 0h2v2h-2v-2zm-4 4h2v2h-2v-2zm4 0h2v2h-2v-2zm2-6h2v2h-2v-2zm0 4h2v2h-2v-2zm-6-4h2v2h-2v-2zm0 4h2v2h-2v-2z"></path>
+</svg>
+</div>
+<p class="font-label-md text-on-surface mb-space-lg">Pindai untuk menulis ulasan</p>
+<div class="w-full flex flex-col gap-space-sm mb-space-lg">
+<button class="w-full py-3 bg-blue-600 text-on-primary font-label-md rounded-lg hover:bg-blue-700 transition-colors shadow-sm flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                Unduh PNG (Resolusi Tinggi)
+              </button>
+<button class="w-full py-3 bg-white border border-border text-on-surface font-label-md rounded-lg hover:bg-blue-50 transition-colors flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">code</span>
+                Unduh SVG (Vektor)
+              </button>
+</div>
+<a class="text-blue-600 hover:text-blue-700 font-label-sm inline-flex items-center gap-space-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+              Buat QR dinamis (bisa diganti tujuannya)
+            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: CANDIDATE LIST STATE -->
+<section class="w-full py-space-2xl bg-surface-container-lowest border-t border-border">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="max-w-2xl mb-space-xl">
+<span class="font-label-sm text-blue-600 uppercase tracking-wider">Interaksi Pencarian</span>
+<h2 class="font-headline-lg text-on-surface mb-space-xs">Pilih Lokasi Bisnis Anda</h2>
+<p class="font-body-md text-on-surface-variant">Ditemukan beberapa lokasi serupa. Silakan pilih lokasi yang tepat agar tautan ulasan mengarah ke halaman Google Maps yang benar.</p>
+</div>
+<div class="max-w-3xl bg-white p-space-lg rounded-xl shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border">
+<div class="flex flex-col gap-space-sm mb-space-lg">
+<!-- Selected Row -->
+<label class="flex items-start gap-space-md p-space-md rounded-xl bg-blue-50 border-2 border-blue-600 cursor-pointer transition-all">
+<input checked="" class="mt-1 text-blue-600 focus:ring-blue-600" name="business_candidate" type="radio"/>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-headline-xs text-on-surface">Warung Sate Pak Slamet</span>
+<span class="px-space-xs py-0.5 rounded bg-blue-100 text-blue-700 font-label-sm">Pilihan Utama</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Jl. Ijen No. 24, Klojen, Kota Malang, Jawa Timur</p>
+</div>
+</label>
+<!-- Neutral Row 1 -->
+<label class="flex items-start gap-space-md p-space-md rounded-xl border border-border hover:bg-surface-container-low cursor-pointer transition-all">
+<input class="mt-1 text-blue-600 focus:ring-blue-600" name="business_candidate" type="radio"/>
+<div class="flex-1">
+<span class="font-headline-xs text-on-surface block mb-space-xs">Sate Madura Pak Slamet</span>
+<p class="font-body-md text-on-surface-variant">Jl. Soekarno Hatta No. 12, Lowokwaru, Kota Malang</p>
+</div>
+</label>
+<!-- Neutral Row 2 -->
+<label class="flex items-start gap-space-md p-space-md rounded-xl border border-border hover:bg-surface-container-low cursor-pointer transition-all">
+<input class="mt-1 text-blue-600 focus:ring-blue-600" name="business_candidate" type="radio"/>
+<div class="flex-1">
+<span class="font-headline-xs text-on-surface block mb-space-xs">Warung Sate &amp; Gule Pak Slamet</span>
+<p class="font-body-md text-on-surface-variant">Jl. Raya Borobudur 45, Blimbing, Kota Malang</p>
+</div>
+</label>
+<!-- Neutral Row 3 -->
+<label class="flex items-start gap-space-md p-space-md rounded-xl border border-border hover:bg-surface-container-low cursor-pointer transition-all">
+<input class="mt-1 text-blue-600 focus:ring-blue-600" name="business_candidate" type="radio"/>
+<div class="flex-1">
+<span class="font-headline-xs text-on-surface block mb-space-xs">Sate Ayam Cak Slamet</span>
+<p class="font-body-md text-on-surface-variant">Pasar Besar Lantai 2, Klojen, Kota Malang</p>
+</div>
+</label>
+<!-- Neutral Row 4 -->
+<label class="flex items-start gap-space-md p-space-md rounded-xl border border-border hover:bg-surface-container-low cursor-pointer transition-all">
+<input class="mt-1 text-blue-600 focus:ring-blue-600" name="business_candidate" type="radio"/>
+<div class="flex-1">
+<span class="font-headline-xs text-on-surface block mb-space-xs">Warung Sate Pak Slamet Cabang Dinoyo</span>
+<p class="font-body-md text-on-surface-variant">Jl. MT Haryono 110, Dinoyo, Lowokwaru, Malang</p>
+</div>
+</label>
+</div>
+<div class="flex justify-end">
+<button class="px-space-xl py-3 bg-blue-600 text-on-primary font-label-md rounded-lg hover:bg-blue-700 transition-colors shadow-sm inline-flex items-center gap-space-xs">
+<span>Gunakan lokasi ini</span>
+<span class="material-symbols-outlined text-[18px]">check</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: ERROR STATE -->
+<section class="w-full py-space-2xl bg-surface-container-low border-t border-border">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="max-w-2xl mb-space-xl">
+<span class="font-label-sm text-danger uppercase tracking-wider">Penanganan Kesalahan</span>
+<h2 class="font-headline-lg text-on-surface mb-space-xs">Peringatan &amp; Validasi Sistem</h2>
+<p class="font-body-md text-on-surface-variant">Simulasi tampilan ketika lokasi bisnis tidak ditemukan atau kata kunci terlalu umum.</p>
+</div>
+<div class="max-w-3xl bg-white p-space-lg rounded-xl shadow-[0_8px_24px_rgba(10,31,68,0.08)] border border-border">
+<!-- Search Input with Error State -->
+<div class="mb-space-lg">
+<label class="block font-label-md text-on-surface mb-space-sm">Cari Nama Bisnis</label>
+<div class="flex flex-col md:flex-row gap-space-sm">
+<div class="relative flex-1">
+<span class="absolute left-space-md top-1/2 -translate-y-1/2 material-symbols-outlined text-danger">error</span>
+<input class="w-full pl-12 pr-space-md py-3 rounded-lg border-2 border-danger bg-danger-bg/20 text-on-surface font-body-md focus:outline-none" type="text" value="Sate"/>
+</div>
+<button class="px-space-xl py-3 bg-blue-600 text-on-primary font-label-md rounded-lg hover:bg-blue-700 transition-colors shadow-sm">
+              Cari Ulang
+            </button>
+</div>
+</div>
+<!-- Inline Danger Callout -->
+<div class="w-full bg-danger-bg text-danger p-space-lg rounded-xl border border-danger/30 flex items-start justify-between">
+<div class="flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[24px] mt-0.5">warning</span>
+<div>
+<h4 class="font-headline-xs mb-space-xs">Bisnis tidak ditemukan</h4>
+<p class="font-body-md mb-space-sm">Bisnis tidak ditemukan. Tambahkan kota atau nama jalan, lalu pilih dari daftar.</p>
+<a class="font-label-sm underline hover:text-danger/80 inline-flex items-center gap-space-xs" href="#">
+<span>Lihat panduan pencarian lokasi</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low py-space-2xl"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant text-body-sm"><div>© 2024 ReviewQR. Hak Cipta Dilindungi.</div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privasi</a><a class="hover:text-on-surface transition-colors" href="#">Syarat Ketentuan</a><a class="hover:text-on-surface transition-colors" href="#">Kontak</a></div></div></footer></body></html>

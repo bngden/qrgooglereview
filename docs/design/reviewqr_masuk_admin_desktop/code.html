@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "warning-bg": "#FEF3C7",
+          "warning": "#B45309",
+          "slate-600": "#475569",
+          "tertiary": "#863000",
+          "success": "#16A34A",
+          "danger-bg": "#FDECEC",
+          "blue-100": "#DCE8FB",
+          "surface-bright": "#faf8ff",
+          "primary-fixed": "#dbe1ff",
+          "on-tertiary-container": "#ffd8ca",
+          "on-secondary-fixed": "#041a3f",
+          "on-background": "#131b2e",
+          "danger": "#DC2626",
+          "primary-container": "#1d5bd6",
+          "secondary-container": "#bccefd",
+          "inverse-surface": "#283044",
+          "on-tertiary-fixed-variant": "#7e2c00",
+          "tertiary-container": "#ad4000",
+          "on-secondary-container": "#46577f",
+          "on-primary-container": "#d8e0ff",
+          "tertiary-fixed-dim": "#ffb597",
+          "blue-50": "#F2F7FE",
+          "blue-600": "#1D5BD6",
+          "surface-container-low": "#f2f3ff",
+          "on-error-container": "#93000a",
+          "surface-container-lowest": "#ffffff",
+          "surface": "#faf8ff",
+          "surface-container": "#eaedff",
+          "on-tertiary-fixed": "#360f00",
+          "border": "#DCE6F5",
+          "outline": "#737685",
+          "on-primary-fixed-variant": "#003fa4",
+          "error": "#ba1a1a",
+          "blue-500": "#3B7BEA",
+          "navy-900": "#0A1F44",
+          "secondary-fixed": "#d9e2ff",
+          "star-yellow": "#F5B301",
+          "slate-400": "#94A3B8",
+          "on-error": "#ffffff",
+          "secondary": "#4c5e86",
+          "primary-fixed-dim": "#b3c5ff",
+          "inverse-on-surface": "#eef0ff",
+          "on-secondary-fixed-variant": "#34466d",
+          "on-primary": "#ffffff",
+          "on-secondary": "#ffffff",
+          "blue-700": "#1648B8",
+          "surface-variant": "#dae2fd",
+          "secondary-fixed-dim": "#b4c6f4",
+          "surface-tint": "#1255d0",
+          "outline-variant": "#c3c6d6",
+          "surface-container-high": "#e2e7ff",
+          "surface-dim": "#d2d9f4",
+          "inverse-primary": "#b3c5ff",
+          "success-bg": "#E8F7EE",
+          "primary": "#0043af",
+          "surface-container-highest": "#dae2fd",
+          "tertiary-fixed": "#ffdbcd",
+          "on-surface-variant": "#434654",
+          "on-tertiary": "#ffffff",
+          "background": "#faf8ff",
+          "ink-900": "#0F172A",
+          "on-surface": "#131b2e",
+          "on-primary-fixed": "#001849",
+          "error-container": "#ffdad6"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-2xl": "48px",
+          "gutter": "24px",
+          "margin": "32px",
+          "space-sm": "8px",
+          "space-lg": "24px",
+          "space-md": "16px",
+          "space-xl": "32px",
+          "space-xs": "4px"
+        },
+        "fontFamily": {
+          "headline-md": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "label-md": [
+            "Plus Jakarta Sans"
+          ],
+          "label-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-xs": [
+            "Plus Jakarta Sans"
+          ]
+        },
+        "fontSize": {
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl": [
+            "40px",
+            {
+              "lineHeight": "48px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "500"
+            }
+          ],
+          "label-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-xs": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface-container-lowest font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-[72px] max-w-7xl mx-auto px-gutter flex items-center justify-between"><a class="flex items-center gap-space-sm" data-path="home" href="#"><div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[24px]">qr_code_2</span></div><span class="font-headline-sm text-on-surface tracking-tight">ReviewQR</span></a><nav class="hidden md:flex items-center gap-space-xl" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg"><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="cara-kerja" href="#">Cara Kerja</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="template-pesan" href="#">Template Pesan</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="faq" href="#">FAQ</a></nav><div><a class="inline-flex items-center justify-center px-space-lg py-space-sm rounded-lg bg-blue-600 text-on-primary font-label-md hover:bg-blue-700 transition-colors shadow-sm" data-path="masuk-admin" href="#">Masuk Admin</a></div></div></header><main class="w-full pt-[72px] bg-surface-container-lowest min-h-[calc(100vh-200px)]"><div class="flex flex-col w-full min-h-[calc(100vh-72px)]">
+<div class="flex flex-col lg:flex-row w-full flex-grow bg-surface-container-lowest">
+<!-- Left Half: Navy 900 Panel -->
+<div class="lg:w-1/2 bg-navy-900 text-white p-space-2xl lg:p-[64px] flex flex-col justify-between relative overflow-hidden">
+<!-- Decorative background pattern using subtle CSS gradients -->
+<div class="absolute inset-0 bg-gradient-to-tr from-blue-700/10 via-transparent to-blue-500/5 pointer-events-none"></div>
+<!-- Top Branding -->
+<div class="relative z-10 flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md">
+<span class="material-symbols-outlined text-[24px]">qr_code_2</span>
+</div>
+<span class="font-headline-sm text-white tracking-tight">ReviewQR</span>
+</div>
+<!-- Center Content -->
+<div class="relative z-10 my-auto py-space-2xl max-w-lg">
+<h2 class="font-headline-xl text-white mb-space-lg leading-tight">
+          Kelola semua QR dalam satu tempat
+        </h2>
+<div class="flex flex-col gap-space-md text-blue-100">
+<div class="flex items-center gap-space-md">
+<div class="w-6 h-6 rounded-full bg-blue-600/30 flex items-center justify-center text-blue-100 flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<span class="text-body-lg">Ubah tujuan QR tanpa cetak ulang</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-6 h-6 rounded-full bg-blue-600/30 flex items-center justify-center text-blue-100 flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<span class="text-body-lg">Pantau jumlah scan</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-6 h-6 rounded-full bg-blue-600/30 flex items-center justify-center text-blue-100 flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<span class="text-body-lg">Reset aman dengan kode</span>
+</div>
+</div>
+</div>
+<!-- Bottom Faint Blue 600 line pattern representation -->
+<div class="relative z-10 pt-space-xl flex items-center justify-between text-blue-100/60 text-body-sm">
+<span>Sistem Pengelolaan Bisnis Terverifikasi</span>
+<div class="flex gap-2">
+<div class="w-12 h-1 bg-blue-600 rounded-full"></div>
+<div class="w-6 h-1 bg-blue-600/50 rounded-full"></div>
+<div class="w-3 h-1 bg-blue-600/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Right Half: Pure White Background, Login Form -->
+<div class="lg:w-1/2 bg-surface-container-lowest p-space-2xl lg:p-[64px] flex flex-col justify-center items-start">
+<div class="w-full max-w-[400px] mx-auto">
+<!-- Header -->
+<div class="mb-space-xl">
+<h2 class="font-headline-lg text-on-surface mb-space-xs">Masuk Admin</h2>
+<p class="text-on-surface-variant text-body-md">Khusus pengelola ReviewQR.</p>
+</div>
+<!-- Locked Variant Callout (Demo toggleable state) -->
+<div class="hidden mb-space-lg p-space-md rounded-lg bg-warning-bg text-warning flex items-start gap-space-sm shadow-sm" id="locked-callout">
+<span class="material-symbols-outlined text-[20px] mt-0.5">lock</span>
+<div class="text-body-md">Terlalu banyak percobaan. Coba lagi dalam 15 menit.</div>
+</div>
+<!-- Error Variant Callout (Demo toggleable state) -->
+<div class="hidden mb-space-lg p-space-md rounded-lg bg-danger-bg text-danger flex items-start gap-space-sm shadow-sm" id="error-callout">
+<span class="material-symbols-outlined text-[20px] mt-0.5">error</span>
+<div class="text-body-md">Email atau kata sandi salah.</div>
+</div>
+<!-- Login Form -->
+<form class="flex flex-col gap-space-lg" onsubmit="event.preventDefault();">
+<!-- Email Field -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-on-surface" for="email">Email</label>
+<div class="relative">
+<input class="w-full px-space-md py-3 rounded-lg border border-border bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-body-md" id="email" placeholder="nama@bisnis.id" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-on-surface" for="password">Kata sandi</label>
+<a class="text-body-sm text-blue-600 hover:text-blue-700 transition-colors" href="#">Lupa kata sandi?</a>
+</div>
+<div class="relative">
+<input class="w-full pl-space-md pr-12 py-3 rounded-lg border border-border bg-surface-container-lowest text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-body-md" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors p-1" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Primary Button -->
+<button class="w-full py-3 px-space-lg bg-blue-600 hover:bg-blue-700 text-on-primary font-label-md rounded-lg shadow-sm transition-colors flex items-center justify-center gap-space-sm mt-space-sm" type="submit">
+<span>Masuk</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<!-- Back Link -->
+<div class="mt-space-2xl text-center">
+<a class="inline-flex items-center gap-space-xs text-body-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Kembali ke beranda</span>
+</a>
+</div>
+<!-- Interactive Demo State Switcher (for testing variants mentioned in prompt) -->
+<div class="mt-space-2xl pt-space-lg border-t border-border flex flex-col gap-space-sm">
+<span class="text-body-sm text-outline font-medium">Demo State Switcher:</span>
+<div class="flex gap-space-sm">
+<button class="px-3 py-1 rounded bg-blue-50 text-blue-600 text-body-sm font-medium hover:bg-blue-100 transition-colors" onclick="setState('normal')">Normal</button>
+<button class="px-3 py-1 rounded bg-danger-bg text-danger text-body-sm font-medium hover:opacity-80 transition-opacity" onclick="setState('error')">Error State</button>
+<button class="px-3 py-1 rounded bg-warning-bg text-warning text-body-sm font-medium hover:opacity-80 transition-opacity" onclick="setState('locked')">Locked State</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    const eyeIcon = document.getElementById('eye-icon');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      eyeIcon.textContent = 'visibility_off';
+    } else {
+      passwordInput.type = 'password';
+      eyeIcon.textContent = 'visibility';
+    }
+  }
+
+  function setState(state) {
+    const errorCallout = document.getElementById('error-callout');
+    const lockedCallout = document.getElementById('locked-callout');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    errorCallout.classList.add('hidden');
+    lockedCallout.classList.add('hidden');
+    emailInput.classList.remove('border-danger', 'border-warning');
+    passwordInput.classList.remove('border-danger', 'border-warning');
+
+    if (state === 'error') {
+      errorCallout.classList.remove('hidden');
+      emailInput.classList.add('border-danger');
+      passwordInput.classList.add('border-danger');
+    } else if (state === 'locked') {
+      lockedCallout.classList.remove('hidden');
+      emailInput.classList.add('border-warning');
+      passwordInput.classList.add('border-warning');
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-low py-space-2xl"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant text-body-sm"><div>© 2024 ReviewQR. Hak Cipta Dilindungi.</div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privasi</a><a class="hover:text-on-surface transition-colors" href="#">Syarat Ketentuan</a><a class="hover:text-on-surface transition-colors" href="#">Kontak</a></div></div></footer></body></html>

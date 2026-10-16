@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {"colors": {"surface-container": "#eaedff", "inverse-surface": "#283044", "surface-container-low": "#f2f3ff", "ink-900": "#0F172A", "on-secondary": "#ffffff", "surface-bright": "#faf8ff", "slate-400": "#94A3B8", "inverse-primary": "#b3c5ff", "danger": "#DC2626", "primary-container": "#1d5bd6", "outline-variant": "#c3c6d6", "on-tertiary-fixed": "#360f00", "danger-bg": "#FDECEC", "warning-bg": "#FEF3C7", "blue-600": "#1D5BD6", "success": "#16A34A", "blue-700": "#1648B8", "tertiary-container": "#ad4000", "on-secondary-fixed": "#041a3f", "primary": "#0043af", "success-bg": "#E8F7EE", "on-tertiary": "#ffffff", "primary-fixed-dim": "#b3c5ff", "surface-variant": "#dae2fd", "on-primary": "#ffffff", "surface-container-lowest": "#ffffff", "slate-600": "#475569", "tertiary": "#863000", "on-secondary-fixed-variant": "#34466d", "secondary-fixed": "#d9e2ff", "blue-50": "#F2F7FE", "tertiary-fixed-dim": "#ffb597", "on-surface": "#131b2e", "on-primary-fixed": "#001849", "error-container": "#ffdad6", "blue-100": "#DCE8FB", "inverse-on-surface": "#eef0ff", "primary-fixed": "#dbe1ff", "star-yellow": "#F5B301", "border": "#DCE6F5", "on-primary-container": "#d8e0ff", "surface-dim": "#d2d9f4", "background": "#faf8ff", "on-tertiary-fixed-variant": "#7e2c00", "secondary": "#4c5e86", "error": "#ba1a1a", "secondary-fixed-dim": "#b4c6f4", "on-primary-fixed-variant": "#003fa4", "on-error": "#ffffff", "tertiary-fixed": "#ffdbcd", "surface": "#faf8ff", "on-error-container": "#93000a", "warning": "#B45309", "on-background": "#131b2e", "surface-container-high": "#e2e7ff", "on-tertiary-container": "#ffd8ca", "on-secondary-container": "#46577f", "navy-900": "#0A1F44", "outline": "#737685", "blue-500": "#3B7BEA", "surface-container-highest": "#dae2fd", "secondary-container": "#bccefd", "on-surface-variant": "#434654", "surface-tint": "#1255d0"}, "borderRadius": {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}, "spacing": {"space-sm": "8px", "space-xs": "4px", "space-md": "16px", "margin": "32px", "space-lg": "24px", "space-2xl": "48px", "gutter": "24px", "space-xl": "32px"}, "fontFamily": {"body-lg": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-xs": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-md": ["Inter"]}, "fontSize": {"body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "fontWeight": "700"}], "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}], "headline-xs": ["16px", {"lineHeight": "24px", "fontWeight": "600"}], "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}], "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}], "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}], "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]}}}};</script><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col pt-space-lg pb-space-lg"><div class="px-space-lg mb-space-xl flex items-center gap-space-md"><span class="material-symbols-outlined text-primary text-[28px]">qr_code_2</span><span class="font-headline-md text-on-surface tracking-tight">ReviewQR</span></div><nav class="flex-1 px-space-md space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a aria-current="page" class="flex items-center px-space-md py-space-md rounded-xl transition-all bg-primary-container text-on-primary-container font-semibold" data-path="dashboard" href="#"><span class="material-symbols-outlined mr-space-md">dashboard</span>Dashboard</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="qr-codes" href="#"><span class="material-symbols-outlined mr-space-md">qr_code</span>QR Codes</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="reviews" href="#"><span class="material-symbols-outlined mr-space-md">star</span>Reviews</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="analytics" href="#"><span class="material-symbols-outlined mr-space-md">monitoring</span>Analytics</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined mr-space-md">settings</span>Settings</a></nav><div class="px-space-lg pt-space-md border-t border-border"><div class="flex items-center gap-space-md"><div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">person</span></div><div class="flex-1 min-w-0"><p class="text-label-md text-on-surface truncate">Acme Corp</p><p class="text-body-sm text-on-surface-variant truncate">admin@acme.co</p></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-2xl"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-on-surface-variant">search</span><input class="bg-surface-container-low border border-border rounded-lg px-space-md py-space-sm text-body-md text-on-surface placeholder:text-outline w-80 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search campaigns, reviews..." type="text"/></div><div class="flex items-center gap-space-lg"><button class="relative p-space-sm text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-danger rounded-full"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full bg-surface">
+<!-- Hero / Intro Banner -->
+<section class="px-space-2xl py-space-xl bg-surface-container-low flex flex-col md:flex-row justify-between items-start md:items-center gap-space-lg">
+<div class="max-w-2xl">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-md py-space-xs rounded-full bg-blue-100 text-blue-700 text-label-sm font-semibold tracking-wide uppercase">Design System 2.4</span>
+<span class="text-body-sm text-outline">Updated Q2 2025</span>
+</div>
+<h1 class="font-headline-xl text-ink-900 tracking-tight">ReviewQR Brand & UI Kit</h1>
+<p class="text-body-lg text-slate-600 mt-space-sm">Comprehensive design tokens, typography specifications, accessible color palettes, and fully realized B2B components for Indonesian enterprise review workflows.</p>
+</div>
+<div class="flex items-center gap-space-md">
+<button class="px-space-lg py-space-md bg-blue-600 hover:bg-blue-700 text-on-primary rounded-lg text-label-md font-semibold transition-all shadow-md flex items-center gap-space-sm" onclick="alert('Exporting design tokens as JSON...')">
+<span class="material-symbols-outlined text-[20px]">download</span>Export Tokens
+      </button>
+<button class="px-space-lg py-space-md bg-white border border-border text-ink-900 hover:bg-blue-50 rounded-lg text-label-md font-semibold transition-all" onclick="window.scrollTo({top: 800, behavior: 'smooth'})">
+        Browse Components
+      </button>
+</div>
+</section>
+<!-- 1. Brand Identity & Logo -->
+<section class="px-space-2xl py-space-2xl bg-surface">
+<div class="mb-space-xl">
+<p class="text-label-sm text-blue-600 uppercase tracking-widest font-semibold mb-space-xs">01 / Brand Identity</p>
+<h2 class="font-headline-lg text-ink-900">Logo & Mark Guidelines</h2>
+<p class="text-body-md text-slate-600">The ReviewQR mark fuses precision QR pixel geometry with star rating elements, set in Plus Jakarta Sans.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Light Card -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xl">
+<span class="text-body-sm text-slate-400 font-mono">VARIANT / ON-LIGHT</span>
+<span class="px-space-sm py-0.5 bg-success-bg text-success text-label-sm rounded-full font-semibold">Primary</span>
+</div>
+<div class="flex items-center gap-space-md py-space-xl">
+<div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg text-white">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+</div>
+<div>
+<span class="font-headline-md text-ink-900 tracking-tight text-[28px]">Review<span class="text-blue-600">QR</span></span>
+<p class="text-body-sm text-slate-600">Plus Jakarta Sans Bold · 700 Weight</p>
+</div>
+</div>
+<div class="pt-space-md border-t border-border flex justify-between text-body-sm text-slate-600">
+<span>Min. clear space: 24px</span>
+<span>Hex: #1D5BD6</span>
+</div>
+</div>
+<!-- Dark Card -->
+<div class="p-space-xl bg-navy-900 rounded-xl shadow-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xl">
+<span class="text-body-sm text-slate-400 font-mono">VARIANT / ON-NAVY</span>
+<span class="px-space-sm py-0.5 bg-blue-500/20 text-blue-100 text-label-sm rounded-full font-semibold">Inverted</span>
+</div>
+<div class="flex items-center gap-space-md py-space-xl">
+<div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg text-navy-900">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+</div>
+<div>
+<span class="font-headline-md text-white tracking-tight text-[28px]">Review<span class="text-blue-500">QR</span></span>
+<p class="text-body-sm text-slate-400">Plus Jakarta Sans Bold · 700 Weight</p>
+</div>
+</div>
+<div class="pt-space-md border-t border-white/10 flex justify-between text-body-sm text-slate-400">
+<span>Use case: Dark mode headers & footers</span>
+<span>Hex: #FFFFFF</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Color Palette -->
+<section class="px-space-2xl py-space-2xl bg-surface-container-low">
+<div class="mb-space-xl">
+<p class="text-label-sm text-blue-600 uppercase tracking-widest font-semibold mb-space-xs">02 / Design Tokens</p>
+<h2 class="font-headline-lg text-ink-900">Color Palette & Semantic Tokens</h2>
+<p class="text-body-md text-slate-600">Strictly defined brand swatches ensuring AA/AAA contrast compliance across enterprise dashboards.</p>
+</div>
+<!-- Primary Blues -->
+<div class="mb-space-xl">
+<h3 class="font-headline-sm text-ink-900 mb-space-md">Primary Blue Scale</h3>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-space-md">
+<div class="p-space-md bg-white rounded-xl border border-border shadow-sm">
+<div class="h-16 rounded-lg bg-navy-900 mb-space-md"></div>
+<p class="font-semibold text-ink-900 text-label-md">Navy 900</p>
+<p class="text-body-sm font-mono text-slate-600">#0A1F44</p>
+</div>
+<div class="p-space-md bg-white rounded-xl border border-border shadow-sm">
+<div class="h-16 rounded-lg bg-blue-700 mb-space-md"></div>
+<p class="font-semibold text-ink-900 text-label-md">Blue 700</p>
+<p class="text-body-sm font-mono text-slate-600">#1648B8</p>
+</div>
+<div class="p-space-md bg-white rounded-xl border border-border shadow-sm">
+<div class="h-16 rounded-lg bg-blue-600 mb-space-md"></div>
+<p class="font-semibold text-ink-900 text-label-md">Blue 600 (Primary)</p>
+<p class="text-body-sm font-mono text-slate-600">#1D5BD6</p>
+</div>
+<div class="p-space-md bg-white rounded-xl border border-border shadow-sm">
+<div class="h-16 rounded-lg bg-blue-500 mb-space-md"></div>
+<p class="font-semibold text-ink-900 text-label-md">Blue 500</p>
+<p class="text-body-sm font-mono text-slate-600">#3B7BEA</p>
+</div>
+<div class="p-space-md bg-white rounded-xl border border-border shadow-sm">
+<div class="h-16 rounded-lg bg-blue-100 mb-space-md"></div>
+<p class="font-semibold text-ink-900 text-label-md">Blue 100</p>
+<p class="text-body-sm font-mono text-slate-600">#DCE8FB</p>
+</div>
+<div class="p-space-md bg-white rounded-xl border border-border shadow-sm">
+<div class="h-16 rounded-lg bg-blue-50 mb-space-md"></div>
+<p class="font-semibold text-ink-900 text-label-md">Blue 50</p>
+<p class="text-body-sm font-mono text-slate-600">#F2F7FE</p>
+</div>
+</div>
+</div>
+<!-- Neutrals & Accents -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm">
+<h3 class="font-headline-sm text-ink-900 mb-space-md">Neutrals & Surfaces</h3>
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-lg bg-ink-900 border border-border"></div><span class="font-medium text-ink-900">Ink 900</span></div>
+<span class="text-body-sm font-mono text-slate-600">#0F172A</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-lg bg-slate-600"></div><span class="font-medium text-ink-900">Slate 600</span></div>
+<span class="text-body-sm font-mono text-slate-600">#475569</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-lg bg-slate-400"></div><span class="font-medium text-ink-900">Slate 400</span></div>
+<span class="text-body-sm font-mono text-slate-600">#94A3B8</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-lg bg-border"></div><span class="font-medium text-ink-900">Border / Outline</span></div>
+<span class="text-body-sm font-mono text-slate-600">#DCE6F5</span>
+</div>
+</div>
+</div>
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm">
+<h3 class="font-headline-sm text-ink-900 mb-space-md">Functional Status & Feedback</h3>
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-lg bg-success"></div><span class="font-medium text-ink-900">Success (Aktif)</span></div>
+<span class="text-body-sm font-mono text-slate-600">#16A34A</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-lg bg-warning"></div><span class="font-medium text-ink-900">Warning (Dijeda)</span></div>
+<span class="text-body-sm font-mono text-slate-600">#B45309</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-lg bg-danger"></div><span class="font-medium text-ink-900">Danger (Kedaluwarsa)</span></div>
+<span class="text-body-sm font-mono text-slate-600">#DC2626</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-lg bg-star-yellow"></div><span class="font-medium text-ink-900">Star Yellow</span></div>
+<span class="text-body-sm font-mono text-slate-600">#F5B301</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Typography Scale -->
+<section class="px-space-2xl py-space-2xl bg-surface">
+<div class="mb-space-xl">
+<p class="text-label-sm text-blue-600 uppercase tracking-widest font-semibold mb-space-xs">03 / Typography</p>
+<h2 class="font-headline-lg text-ink-900">Plus Jakarta Sans & Inter Hierarchy</h2>
+<p class="text-body-md text-slate-600">Optimized for high-density data tables and impactful editorial headings.</p>
+</div>
+<div class="bg-white rounded-xl border border-border shadow-sm divide-y divide-border overflow-hidden">
+<div class="p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="w-48"><span class="text-label-sm font-mono text-blue-600">Display (48/56)</span><br/><span class="text-body-sm text-slate-400">Plus Jakarta Sans Bold</span></div>
+<div class="flex-1 text-ink-900 text-[48px] font-bold font-headline-xl leading-[56px] tracking-tight">Warung Sate Pak Slamet</div>
+</div>
+<div class="p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="w-48"><span class="text-label-sm font-mono text-blue-600">Heading 1 (36/44)</span><br/><span class="text-body-sm text-slate-400">Plus Jakarta Sans Bold</span></div>
+<div class="flex-1 text-ink-900 text-[36px] font-bold font-headline-lg leading-[44px]">Kopi Tuku Cabang Dieng</div>
+</div>
+<div class="p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="w-48"><span class="text-label-sm font-mono text-blue-600">Heading 2 (28/36)</span><br/><span class="text-body-sm text-slate-400">Plus Jakarta Sans SemiBold</span></div>
+<div class="flex-1 text-ink-900 text-headline-md">Hotel Santika Premiere Malang</div>
+</div>
+<div class="p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="w-48"><span class="text-label-sm font-mono text-blue-600">Heading 3 (22/30)</span><br/><span class="text-body-sm text-slate-400">Plus Jakarta Sans SemiBold</span></div>
+<div class="flex-1 text-ink-900 text-headline-sm">Campaign Performance Overview</div>
+</div>
+<div class="p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="w-48"><span class="text-label-sm font-mono text-blue-600">Body Large (18/28)</span><br/><span class="text-body-sm text-slate-400">Inter Regular</span></div>
+<div class="flex-1 text-ink-900 text-body-lg">Pelanggan sangat puas dengan kecepatan pelayanan kasir digital kami minggu ini.</div>
+</div>
+<div class="p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="w-48"><span class="text-label-sm font-mono text-blue-600">Body Default (16/24)</span><br/><span class="text-body-sm text-slate-400">Inter Regular</span></div>
+<div class="flex-1 text-ink-900 text-body-md text-[16px] leading-[24px]">Pindai kode QR di meja untuk memberikan ulasan langsung ke Google Maps bisnis Anda.</div>
+</div>
+<div class="p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="w-48"><span class="text-label-sm font-mono text-blue-600">Small / Caption (12/16)</span><br/><span class="text-body-sm text-slate-400">Inter Medium</span></div>
+<div class="flex-1 text-ink-900 text-label-sm">Terakhir diperbarui 3 menit lalu oleh Admin Cabang Malang</div>
+</div>
+</div>
+</section>
+<!-- 4. Buttons Section -->
+<section class="px-space-2xl py-space-2xl bg-surface-container-low">
+<div class="mb-space-xl">
+<p class="text-label-sm text-blue-600 uppercase tracking-widest font-semibold mb-space-xs">04 / Components</p>
+<h2 class="font-headline-lg text-ink-900">Buttons & Interactive States</h2>
+<p class="text-body-md text-slate-600">Standardized 10px radius buttons in 40px and 48px heights with complete state coverage.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- Primary -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm flex flex-col gap-space-md">
+<span class="text-label-sm font-semibold text-slate-600">Primary (Blue 600)</span>
+<button class="h-12 px-space-lg bg-blue-600 hover:bg-blue-700 text-on-primary rounded-lg text-label-md font-semibold transition-all shadow-sm flex items-center justify-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>Buat Campaign Baru
+        </button>
+<button class="h-10 px-space-md bg-blue-600 hover:bg-blue-700 text-on-primary rounded-lg text-label-sm font-semibold transition-all flex items-center justify-center">
+          Primary 40px
+        </button>
+<button class="h-12 px-space-lg bg-slate-400/40 text-slate-400 rounded-lg text-label-md font-semibold cursor-not-allowed flex items-center justify-center" disabled="">
+          Disabled State
+        </button>
+<button class="h-12 px-space-lg bg-blue-600 text-on-primary rounded-lg text-label-md font-semibold flex items-center justify-center gap-space-sm">
+<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>Memproses...
+        </button>
+</div>
+<!-- Secondary -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm flex flex-col gap-space-md">
+<span class="text-label-sm font-semibold text-slate-600">Secondary / Outline</span>
+<button class="h-12 px-space-lg bg-white border border-border hover:bg-blue-50 text-ink-900 rounded-lg text-label-md font-semibold transition-all flex items-center justify-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>Unduh PDF QR
+        </button>
+<button class="h-10 px-space-md bg-white border border-border hover:bg-blue-50 text-ink-900 rounded-lg text-label-sm font-semibold transition-all flex items-center justify-center">
+          Secondary 40px
+        </button>
+<button class="h-12 px-space-lg bg-blue-50 text-blue-600 rounded-lg text-label-md font-semibold flex items-center justify-center">
+          Active / Focus Ring
+        </button>
+</div>
+<!-- Ghost & Icon -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm flex flex-col gap-space-md">
+<span class="text-label-sm font-semibold text-slate-600">Ghost & Icon Buttons</span>
+<button class="h-12 px-space-lg hover:bg-surface-container-high text-on-surface-variant rounded-lg text-label-md font-medium transition-all flex items-center justify-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px]">settings</span>Pengaturan Lanjut
+        </button>
+<div class="flex items-center gap-space-sm">
+<button class="w-12 h-12 bg-white border border-border hover:bg-blue-50 text-ink-900 rounded-lg flex items-center justify-center transition-all">
+<span class="material-symbols-outlined">print</span>
+</button>
+<button class="w-12 h-12 bg-white border border-border hover:bg-blue-50 text-ink-900 rounded-lg flex items-center justify-center transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="w-12 h-12 bg-white border border-border hover:bg-danger-bg text-danger rounded-lg flex items-center justify-center transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Destructive -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm flex flex-col gap-space-md">
+<span class="text-label-sm font-semibold text-slate-600">Destructive & Warning</span>
+<button class="h-12 px-space-lg bg-danger hover:bg-red-700 text-on-error rounded-lg text-label-md font-semibold transition-all shadow-sm flex items-center justify-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px]">warning</span>Hapus QR Campaign
+        </button>
+<button class="h-12 px-space-lg bg-danger-bg text-danger hover:bg-danger/20 rounded-lg text-label-md font-semibold transition-all flex items-center justify-center">
+          Soft Danger Variant
+        </button>
+</div>
+</div>
+</section>
+<!-- 5. Inputs & Form Controls -->
+<section class="px-space-2xl py-space-2xl bg-surface">
+<div class="mb-space-xl">
+<p class="text-label-sm text-blue-600 uppercase tracking-widest font-semibold mb-space-xs">05 / Form Elements</p>
+<h2 class="font-headline-lg text-ink-900">Inputs, Toggles & Selectors</h2>
+<p class="text-body-md text-slate-600">Form controls equipped with validation states and Indonesian localized placeholders.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Standard Inputs -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm space-y-space-md">
+<h3 class="font-headline-sm text-ink-900">Text Inputs</h3>
+<div>
+<label class="block text-label-md font-medium text-ink-900 mb-space-xs">Nama Bisnis</label>
+<input class="w-full bg-surface-container-low border border-border rounded-lg px-space-md py-space-md text-body-md text-ink-900 focus:outline-none focus:ring-2 focus:ring-blue-600" type="text" value="Warung Sate Pak Slamet"/>
+</div>
+<div>
+<label class="block text-label-md font-medium text-ink-900 mb-space-xs">Hero Input (56px tall)</label>
+<div class="relative flex items-center">
+<input class="w-full h-14 bg-surface-container-low border border-border rounded-lg pl-space-md pr-32 text-body-lg text-ink-900 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="https://g.page/r/review-link..." type="text"/>
+<button class="absolute right-2 px-space-md py-2 bg-blue-600 text-white rounded-md text-label-sm font-semibold hover:bg-blue-700">Paste Link</button>
+</div>
+</div>
+<div>
+<label class="block text-label-md font-medium text-ink-900 mb-space-xs">Pilih Cabang Lokasi</label>
+<select class="w-full bg-surface-container-low border border-border rounded-lg px-space-md py-space-md text-body-md text-ink-900 focus:outline-none focus:ring-2 focus:ring-blue-600">
+<option>Cabang Malang Dieng</option>
+<option>Cabang Surabaya Gubeng</option>
+<option>Cabang Jakarta Sudirman</option>
+</select>
+</div>
+</div>
+<!-- OTP 8-box code input -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm space-y-space-md">
+<h3 class="font-headline-sm text-ink-900">OTP / Campaign PIN (8-Box)</h3>
+<div>
+<label class="block text-label-md font-medium text-ink-900 mb-space-xs">Masukkan Kode Aktivasi QR</label>
+<div class="flex items-center gap-space-xs justify-between">
+<input class="w-10 h-12 text-center text-headline-sm bg-surface-container-low border border-border rounded-lg font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none" maxlength="1" type="text" value="4"/>
+<input class="w-10 h-12 text-center text-headline-sm bg-surface-container-low border border-border rounded-lg font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none" maxlength="1" type="text" value="8"/>
+<input class="w-10 h-12 text-center text-headline-sm bg-surface-container-low border border-border rounded-lg font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none" maxlength="1" type="text" value="2"/>
+<input class="w-10 h-12 text-center text-headline-sm bg-surface-container-low border border-border rounded-lg font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none" maxlength="1" type="text" value="9"/>
+<span class="text-slate-400 font-bold">-</span>
+<input class="w-10 h-12 text-center text-headline-sm bg-surface-container-low border border-border rounded-lg font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none" maxlength="1" type="text" value="1"/>
+<input class="w-10 h-12 text-center text-headline-sm bg-surface-container-low border border-border rounded-lg font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none" maxlength="1" type="text" value="0"/>
+<input class="w-10 h-12 text-center text-headline-sm bg-surface-container-low border border-border rounded-lg font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none" maxlength="1" type="text" value="8"/>
+<input class="w-10 h-12 text-center text-headline-sm bg-surface-container-low border border-border rounded-lg font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none" maxlength="1" type="text" value="5"/>
+</div>
+</div>
+<p class="text-body-sm text-slate-600">Kode unik dikirimkan ke email manajer operasional setelah pembuatan QR instan.</p>
+</div>
+<!-- Toggles & Checkboxes -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm space-y-space-lg">
+<h3 class="font-headline-sm text-ink-900">Checkboxes & Toggles</h3>
+<div class="space-y-space-md">
+<label class="flex items-center gap-space-md cursor-pointer">
+<input checked="" class="w-5 h-5 accent-blue-600 rounded" type="checkbox"/>
+<span class="text-body-md text-ink-900 font-medium">Kirim notifikasi ulasan WhatsApp</span>
+</label>
+<label class="flex items-center gap-space-md cursor-pointer">
+<input class="w-5 h-5 accent-blue-600 rounded" type="checkbox"/>
+<span class="text-body-md text-ink-900 font-medium">Auto-reply bintang 5 ke Google Maps</span>
+</label>
+</div>
+<div class="pt-space-md border-t border-border flex items-center justify-between">
+<span class="text-body-md text-ink-900 font-medium">Mode Redirect Langsung</span>
+<div class="w-12 h-6 bg-blue-600 rounded-full p-1 flex items-center justify-end cursor-pointer">
+<div class="w-4 h-4 bg-white rounded-full shadow-md"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-md text-ink-900 font-medium">Filter Kata Kasar Otomatis</span>
+<div class="w-12 h-6 bg-slate-400/40 rounded-full p-1 flex items-center justify-start cursor-pointer">
+<div class="w-4 h-4 bg-white rounded-full shadow-md"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Badges & Callouts -->
+<section class="px-space-2xl py-space-2xl bg-surface-container-low">
+<div class="mb-space-xl">
+<p class="text-label-sm text-blue-600 uppercase tracking-widest font-semibold mb-space-xs">06 / Status Badges</p>
+<h2 class="font-headline-lg text-ink-900">Badges & Callout Banners</h2>
+<p class="text-body-md text-slate-600">Fully rounded (999px radius) status tags and contextual alert cards.</p>
+</div>
+<!-- Badges Row -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm mb-space-lg flex flex-wrap items-center gap-space-md">
+<span class="px-space-md py-1.5 bg-success-bg text-success text-label-md font-semibold rounded-full flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-success"></span>Aktif (Running)
+      </span>
+<span class="px-space-md py-1.5 bg-warning-bg text-warning text-label-md font-semibold rounded-full flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-warning"></span>Dijeda (Paused)
+      </span>
+<span class="px-space-md py-1.5 bg-surface-container-high text-slate-600 text-label-md font-semibold rounded-full flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-slate-400"></span>Diarsipkan
+      </span>
+<span class="px-space-md py-1.5 bg-danger-bg text-danger text-label-md font-semibold rounded-full flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-danger"></span>Kedaluwarsa
+      </span>
+<span class="px-space-md py-1.5 bg-blue-50 text-blue-600 text-label-md font-semibold rounded-full">
+        Review Google Maps
+      </span>
+<span class="px-space-md py-1.5 bg-surface-container text-ink-900 text-label-md font-mono">
+        URL Target
+      </span>
+</div>
+<!-- Callouts -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="p-space-lg bg-blue-50 border border-blue-100 rounded-xl flex items-start gap-space-md">
+<span class="material-symbols-outlined text-blue-600 text-[24px]">info</span>
+<div>
+<h4 class="font-headline-sm text-blue-900 mb-space-xs">Tips Penggunaan QR Meja</h4>
+<p class="text-body-md text-blue-800">Cetak QR menggunakan bahan akrilik tahan air ukuran 10x10cm agar mudah dipindai oleh pelanggan di setiap meja makan.</p>
+</div>
+</div>
+<div class="p-space-lg bg-warning-bg border border-warning/20 rounded-xl flex items-start gap-space-md">
+<span class="material-symbols-outlined text-warning text-[24px]">warning</span>
+<div>
+<h4 class="font-headline-sm text-warning-900 mb-space-xs">Peringatan Kuota Kampanye</h4>
+<p class="text-body-md text-warning-800">Paket operasional Anda telah mencapai 85% dari batas 5.000 pindai bulanan. Pertimbangkan upgrade ke Enterprise Plan.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Cards & Stat Widgets -->
+<section class="px-space-2xl py-space-2xl bg-surface">
+<div class="mb-space-xl">
+<p class="text-label-sm text-blue-600 uppercase tracking-widest font-semibold mb-space-xs">07 / Containers</p>
+<h2 class="font-headline-lg text-ink-900">Cards, Stats & QR Previews</h2>
+<p class="text-body-md text-slate-600">Constructed with 12px radius, clean borders, and soft ambient illumination.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Stat Card -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md text-slate-600 font-medium">Total Ulasan Bulan Ini</span>
+<span class="p-space-sm bg-success-bg text-success rounded-lg flex items-center text-label-sm font-semibold">+12.4%</span>
+</div>
+<div class="my-space-md">
+<span class="font-headline-xl text-ink-900">1,482</span>
+<span class="text-body-sm text-slate-600 ml-2">ulasan masuk</span>
+</div>
+<div class="pt-space-md border-t border-border flex items-center justify-between text-body-sm text-slate-600">
+<span>Target bulanan: 1,200</span>
+<span class="text-success font-semibold">Tercapai</span>
+</div>
+</div>
+<!-- Rating Display Card -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md text-slate-600 font-medium">Rata-rata Rating</span>
+<span class="material-symbols-outlined text-star-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="flex items-baseline gap-space-md my-space-md">
+<span class="font-headline-xl text-ink-900">4.9</span>
+<div class="flex text-star-yellow">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="pt-space-md border-t border-border text-body-sm text-slate-600">
+          Dari 3,840 total responden Google Maps & Zomato.
+        </div>
+</div>
+<!-- QR Preview Card -->
+<div class="p-space-xl bg-white rounded-xl border border-border shadow-sm flex flex-col items-center text-center">
+<div class="w-full flex items-center justify-between mb-space-md">
+<span class="text-label-md font-semibold text-ink-900">Meja VIP #04</span>
+<span class="px-space-sm py-0.5 bg-success-bg text-success text-label-sm rounded-full font-semibold">Aktif</span>
+</div>
+<div class="w-32 h-32 bg-surface-container-low rounded-xl flex items-center justify-center p-space-md mb-space-md border border-border">
+<span class="material-symbols-outlined text-[64px] text-blue-600" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+</div>
+<p class="text-body-sm text-slate-600 mb-space-md">Warung Sate Pak Slamet, Malang</p>
+<button class="w-full h-10 bg-blue-600 hover:bg-blue-700 text-on-primary rounded-lg text-label-sm font-semibold transition-all">
+          Unduh PNG
+        </button>
+</div>
+</div>
+</section>
+<!-- 8. Data Table -->
+<section class="px-space-2xl py-space-2xl bg-surface-container-low">
+<div class="mb-space-xl flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div>
+<p class="text-label-sm text-blue-600 uppercase tracking-widest font-semibold mb-space-xs">08 / Data Display</p>
+<h2 class="font-headline-lg text-ink-900">Indonesian Business Campaigns Table</h2>
+<p class="text-body-md text-slate-600">Tabular figures, avatar-less text alignments, and custom status badges.</p>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-slate-400">search</span>
+<input class="pl-10 pr-space-md py-2.5 bg-white border border-border rounded-lg text-body-md text-ink-900 focus:outline-none focus:ring-2 focus:ring-blue-600 w-64" placeholder="Cari resto / hotel..." type="text"/>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-border shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-blue-50 text-ink-900 font-headline-xs border-b border-border">
+<th class="p-space-md">Nama Bisnis & Lokasi</th>
+<th class="p-space-md">ID Campaign</th>
+<th class="p-space-md">Total Scan</th>
+<th class="p-space-md">Rating</th>
+<th class="p-space-md">Status</th>
+<th class="p-space-md text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border text-body-md text-ink-900">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="p-space-md font-semibold">Warung Sate Pak Slamet, Malang</td>
+<td class="p-space-md font-mono text-slate-600 text-body-sm">QR-8821-MLG</td>
+<td class="p-space-md font-mono">1,482</td>
+<td class="p-space-md"><div class="flex items-center gap-1"><span class="text-star-yellow font-bold">4.9</span><span class="material-symbols-outlined text-[16px] text-star-yellow" style="font-variation-settings: 'FILL' 1;">star</span></div></td>
+<td class="p-space-md"><span class="px-space-md py-1 bg-success-bg text-success text-label-sm font-semibold rounded-full">Aktif</span></td>
+<td class="p-space-md text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-slate-600"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="p-space-md font-semibold">Kopi Tuku Cabang Dieng</td>
+<td class="p-space-md font-mono text-slate-600 text-body-sm">QR-4412-SBY</td>
+<td class="p-space-md font-mono">3,290</td>
+<td class="p-space-md"><div class="flex items-center gap-1"><span class="text-star-yellow font-bold">4.8</span><span class="material-symbols-outlined text-[16px] text-star-yellow" style="font-variation-settings: 'FILL' 1;">star</span></div></td>
+<td class="p-space-md"><span class="px-space-md py-1 bg-success-bg text-success text-label-sm font-semibold rounded-full">Aktif</span></td>
+<td class="p-space-md text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-slate-600"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="p-space-md font-semibold">Hotel Santika Premiere Malang</td>
+<td class="p-space-md font-mono text-slate-600 text-body-sm">QR-9930-MLG</td>
+<td class="p-space-md font-mono">890</td>
+<td class="p-space-md"><div class="flex items-center gap-1"><span class="text-star-yellow font-bold">4.6</span><span class="material-symbols-outlined text-[16px] text-star-yellow" style="font-variation-settings: 'FILL' 1;">star</span></div></td>
+<td class="p-space-md"><span class="px-space-md py-1 bg-warning-bg text-warning text-label-sm font-semibold rounded-full">Dijeda</span></td>
+<td class="p-space-md text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-slate-600"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 9. Interactive UI Elements & Navigation Previews -->
+<section class="px-space-2xl py-space-2xl bg-surface">
+<div class="mb-space-xl">
+<p class="text-label-sm text-blue-600 uppercase tracking-widest font-semibold mb-space-xs">09 / Navigation & UI Feedback</p>
+<h2 class="font-headline-lg text-ink-900">Tabs, Toasts & Sidebar Previews</h2>
+<p class="text-body-md text-slate-600">Enterprise navigation patterns and interactive notification components.</p>
+</div>
+<!-- Tabs Component -->
+<div class="bg-white rounded-xl border border-border shadow-sm p-space-xl mb-space-lg">
+<h3 class="font-headline-sm text-ink-900 mb-space-md">Navigation Tabs (Underline Style)</h3>
+<div class="flex border-b border-border gap-space-2xl">
+<button class="pb-space-md text-blue-600 font-semibold border-b-2 border-blue-600 text-label-md">Semua Campaign (12)</button>
+<button class="pb-space-md text-slate-600 hover:text-ink-900 font-medium text-label-md">Aktif & Berjalan</button>
+<button class="pb-space-md text-slate-600 hover:text-ink-900 font-medium text-label-md">Diarsipkan</button>
+<button class="pb-space-md text-slate-600 hover:text-ink-900 font-medium text-label-md">Pengaturan Cabang</button>
+</div>
+</div>
+<!-- Toasts & Alerts Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg mb-space-lg">
+<!-- Success Toast -->
+<div class="p-space-md bg-success-bg border border-success/30 rounded-xl flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 bg-success text-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">check</span>
+</div>
+<div>
+<h4 class="font-headline-xs text-success-900">Berhasil Disimpan</h4>
+<p class="text-body-sm text-success-800">QR Campaign Warung Sate Pak Slamet telah diperbarui.</p>
+</div>
+</div>
+<button class="text-success-900 hover:text-success"><span class="material-symbols-outlined">close</span></button>
+</div>
+<!-- Error Toast -->
+<div class="p-space-md bg-danger-bg border border-danger/30 rounded-xl flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 bg-danger text-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">error</span>
+</div>
+<div>
+<h4 class="font-headline-xs text-red-900">Gagal Mengunggah</h4>
+<p class="text-body-sm text-red-800">Format gambar logo harus PNG atau SVG maksimal 2MB.</p>
+</div>
+</div>
+<button class="text-red-900 hover:text-danger"><span class="material-symbols-outlined">close</span></button>
+</div>
+</div>
+<!-- Sidebar Preview Component -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<div class="bg-surface-container-low rounded-xl border border-border p-space-md w-72">
+<p class="text-label-sm font-semibold text-slate-400 mb-space-md uppercase">Sidebar Item States Preview</p>
+<div class="space-y-space-xs">
+<!-- Active State -->
+<div class="flex items-center px-space-md py-space-md rounded-xl bg-blue-100 text-blue-600 font-semibold border-l-4 border-blue-600">
+<span class="material-symbols-outlined mr-space-md">dashboard</span>Dashboard Utama
+          </div>
+<!-- Normal State -->
+<div class="flex items-center px-space-md py-space-md rounded-xl text-slate-600 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined mr-space-md">qr_code</span>Kelola QR Codes
+          </div>
+<div class="flex items-center px-space-md py-space-md rounded-xl text-slate-600 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined mr-space-md">star</span>Ulasan Pelanggan
+          </div>
+</div>
+</div>
+<!-- Modal Dialog Preview -->
+<div class="md:col-span-2 bg-white rounded-xl border border-border p-space-xl shadow-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<h3 class="font-headline-md text-ink-900">Konfirmasi Hapus Campaign</h3>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer">close</span>
+</div>
+<p class="text-body-md text-slate-600 mb-space-lg">Apakah Anda yakin ingin menghapus QR Campaign untuk <strong>Kopi Tuku Cabang Dieng</strong>? Tindakan ini akan menonaktifkan seluruh meja yang terhubung.</p>
+</div>
+<div class="flex items-center justify-end gap-space-md pt-space-md border-t border-border">
+<button class="px-space-lg py-2.5 bg-white border border-border text-ink-900 hover:bg-blue-50 rounded-lg text-label-md font-semibold">Batal</button>
+<button class="px-space-lg py-2.5 bg-danger text-white hover:bg-red-700 rounded-lg text-label-md font-semibold shadow-sm">Ya, Hapus Permanen</button>
+</div>
+</div>
+</div>
+</section>
+</div></main></div></body></html>

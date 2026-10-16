@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {"colors": {"surface-container": "#eaedff", "inverse-surface": "#283044", "surface-container-low": "#f2f3ff", "ink-900": "#0F172A", "on-secondary": "#ffffff", "surface-bright": "#faf8ff", "slate-400": "#94A3B8", "inverse-primary": "#b3c5ff", "danger": "#DC2626", "primary-container": "#1d5bd6", "outline-variant": "#c3c6d6", "on-tertiary-fixed": "#360f00", "danger-bg": "#FDECEC", "warning-bg": "#FEF3C7", "blue-600": "#1D5BD6", "success": "#16A34A", "blue-700": "#1648B8", "tertiary-container": "#ad4000", "on-secondary-fixed": "#041a3f", "primary": "#0043af", "success-bg": "#E8F7EE", "on-tertiary": "#ffffff", "primary-fixed-dim": "#b3c5ff", "surface-variant": "#dae2fd", "on-primary": "#ffffff", "surface-container-lowest": "#ffffff", "slate-600": "#475569", "tertiary": "#863000", "on-secondary-fixed-variant": "#34466d", "secondary-fixed": "#d9e2ff", "blue-50": "#F2F7FE", "tertiary-fixed-dim": "#ffb597", "on-surface": "#131b2e", "on-primary-fixed": "#001849", "error-container": "#ffdad6", "blue-100": "#DCE8FB", "inverse-on-surface": "#eef0ff", "primary-fixed": "#dbe1ff", "star-yellow": "#F5B301", "border": "#DCE6F5", "on-primary-container": "#d8e0ff", "surface-dim": "#d2d9f4", "background": "#faf8ff", "on-tertiary-fixed-variant": "#7e2c00", "secondary": "#4c5e86", "error": "#ba1a1a", "secondary-fixed-dim": "#b4c6f4", "on-primary-fixed-variant": "#003fa4", "on-error": "#ffffff", "tertiary-fixed": "#ffdbcd", "surface": "#faf8ff", "on-error-container": "#93000a", "warning": "#B45309", "on-background": "#131b2e", "surface-container-high": "#e2e7ff", "on-tertiary-container": "#ffd8ca", "on-secondary-container": "#46577f", "navy-900": "#0A1F44", "outline": "#737685", "blue-500": "#3B7BEA", "surface-container-highest": "#dae2fd", "secondary-container": "#bccefd", "on-surface-variant": "#434654", "surface-tint": "#1255d0"}, "borderRadius": {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}, "spacing": {"space-sm": "8px", "space-xs": "4px", "space-md": "16px", "margin": "32px", "space-lg": "24px", "space-2xl": "48px", "gutter": "24px", "space-xl": "32px"}, "fontFamily": {"body-lg": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-xs": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-md": ["Inter"]}, "fontSize": {"body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "fontWeight": "700"}], "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}], "headline-xs": ["16px", {"lineHeight": "24px", "fontWeight": "600"}], "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}], "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}], "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}], "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]}}}};</script><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col pt-space-lg pb-space-lg"><div class="px-space-lg mb-space-xl flex items-center gap-space-md"><span class="material-symbols-outlined text-primary text-[28px]">qr_code_2</span><span class="font-headline-md text-on-surface tracking-tight">ReviewQR</span></div><nav class="flex-1 px-space-md space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined mr-space-md">dashboard</span>Dashboard</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="qr-codes" href="#"><span class="material-symbols-outlined mr-space-md">qr_code</span>QR Codes</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="reviews" href="#"><span class="material-symbols-outlined mr-space-md">star</span>Reviews</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="analytics" href="#"><span class="material-symbols-outlined mr-space-md">monitoring</span>Analytics</a><a class="flex items-center px-space-md py-space-md rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined mr-space-md">settings</span>Settings</a></nav><div class="px-space-lg pt-space-md border-t border-border"><div class="flex items-center gap-space-md"><div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">person</span></div><div class="flex-1 min-w-0"><p class="text-label-md text-on-surface truncate">Acme Corp</p><p class="text-body-sm text-on-surface-variant truncate">admin@acme.co</p></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-2xl"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-on-surface-variant">search</span><input class="bg-surface-container-low border border-border rounded-lg px-space-md py-space-sm text-body-md text-on-surface placeholder:text-outline w-80 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search campaigns, reviews..." type="text"/></div><div class="flex items-center gap-space-lg"><button class="relative p-space-sm text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-danger rounded-full"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="flex flex-col px-space-2xl py-space-xl gap-space-2xl">
+<!-- Top Stats Row -->
+<div class="grid grid-cols-4 gap-space-lg">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md text-on-surface-variant font-headline-md">QR Aktif</span>
+<span class="p-space-xs rounded-full bg-blue-50 text-blue-600 material-symbols-outlined text-[20px]">qr_code_2</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="text-headline-lg font-headline-lg text-on-surface tracking-tight">24</span>
+<span class="text-body-sm text-success font-medium">100% operational</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md text-on-surface-variant font-headline-md">Scan Hari Ini</span>
+<span class="p-space-xs rounded-full bg-success-bg text-success material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="text-headline-lg font-headline-lg text-on-surface tracking-tight">138</span>
+<span class="text-body-sm text-success font-medium bg-success-bg px-space-xs py-0.5 rounded">+12% vs kemarin</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md text-on-surface-variant font-headline-md">Scan 7 Hari</span>
+<span class="p-space-xs rounded-full bg-blue-50 text-blue-600 material-symbols-outlined text-[20px]">bar_chart</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="text-headline-lg font-headline-lg text-on-surface tracking-tight">1.204</span>
+<span class="text-body-sm text-on-surface-variant">Total scan mingguan</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md text-on-surface-variant font-headline-md">QR Tanpa Scan 30 Hari</span>
+<span class="p-space-xs rounded-full bg-warning-bg text-warning material-symbols-outlined text-[20px]">warning</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="text-headline-lg font-headline-lg text-on-surface tracking-tight">3</span>
+<span class="text-body-sm text-warning font-medium bg-warning-bg px-space-sm py-0.5 rounded-full">Perlu dicek</span>
+</div>
+</div>
+</div>
+<!-- Main Chart Section -->
+<div class="bg-surface-container-lowest p-space-2xl rounded-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-md font-headline-md text-on-surface tracking-tight">Scan 30 hari terakhir</h2>
+<p class="text-body-md text-on-surface-variant">Statistik pemindaian QR code keseluruhan merchant</p>
+</div>
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg">
+<button class="px-space-md py-space-xs text-label-md text-on-surface-variant rounded-md hover:bg-surface-container-lowest transition-all">7H</button>
+<button class="px-space-md py-space-xs text-label-md bg-surface-container-lowest text-primary font-medium rounded-md shadow-sm">30H</button>
+<button class="px-space-md py-space-xs text-label-md text-on-surface-variant rounded-md hover:bg-surface-container-lowest transition-all">90H</button>
+</div>
+</div>
+<!-- Chart Mock -->
+<div class="relative h-64 w-full flex flex-col justify-between pt-space-md">
+<!-- Horizontal grid lines -->
+<div class="absolute inset-x-0 top-0 h-px bg-surface-container-high"></div>
+<div class="absolute inset-x-0 top-1/4 h-px bg-surface-container-high"></div>
+<div class="absolute inset-x-0 top-2/4 h-px bg-surface-container-high"></div>
+<div class="absolute inset-x-0 top-3/4 h-px bg-surface-container-high"></div>
+<div class="absolute inset-x-0 bottom-0 h-px bg-surface-container-high"></div>
+<!-- SVG Line chart -->
+<div class="absolute inset-0 z-10 flex items-center">
+<svg class="w-full h-48 overflow-visible" preserveaspectratio="none" viewbox="0 0 1000 200">
+<defs>
+<lineargradient id="chartGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#3B7BEA" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#3B7BEA" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,150 Q150,120 300,90 T600,60 T900,40 L1000,30 L1000,200 L0,200 Z" fill="url(#chartGrad)"></path>
+<path d="M0,150 Q150,120 300,90 T600,60 T900,40 L1000,30" fill="none" stroke="#3B7BEA" stroke-width="3" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+<!-- Tooltip sample -->
+<div class="absolute left-2/3 top-12 z-20 bg-inverse-surface text-inverse-on-surface px-space-md py-space-xs rounded-lg shadow-xl text-body-sm flex flex-col gap-0.5">
+<span class="text-slate-400">24 Okt 2023</span>
+<span class="font-bold text-headline-xs">142 Scan</span>
+</div>
+<!-- X axis labels -->
+<div class="flex justify-between text-body-sm text-outline z-20 mt-auto pt-space-md">
+<span>01 Okt</span>
+<span>08 Okt</span>
+<span>15 Okt</span>
+<span>22 Okt</span>
+<span>30 Okt</span>
+</div>
+</div>
+</div>
+<!-- Two Columns Section -->
+<div class="grid grid-cols-2 gap-space-2xl">
+<!-- Top QR List -->
+<div class="bg-surface-container-lowest p-space-2xl rounded-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-md font-headline-md text-on-surface tracking-tight">QR teratas</h3>
+<a class="text-label-md text-primary hover:underline flex items-center gap-1" href="#">Lihat semua <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Item 1 -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-xs text-on-surface">Kopi Tuku Dieng</span>
+<span class="text-body-sm text-on-surface-variant">Cabang Utama Malang</span>
+</div>
+<span class="font-mono text-body-md font-semibold text-on-surface">432 scan</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-blue-600 h-full rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-xs text-on-surface">Warung Sate Pak Slamet</span>
+<span class="text-body-sm text-on-surface-variant">Jl. Soekarno Hatta</span>
+</div>
+<span class="font-mono text-body-md font-semibold text-on-surface">312 scan</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-blue-600 h-full rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-xs text-on-surface">Hotel Santika Premiere</span>
+<span class="text-body-sm text-on-surface-variant">Lobby &amp; Resto</span>
+</div>
+<span class="font-mono text-body-md font-semibold text-on-surface">245 scan</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-blue-600 h-full rounded-full" style="width: 50%;"></div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-xs text-on-surface">Batik Keris Store</span>
+<span class="text-body-sm text-on-surface-variant">Mall Olympic Garden</span>
+</div>
+<span class="font-mono text-body-md font-semibold text-on-surface">128 scan</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-blue-600 h-full rounded-full" style="width: 30%;"></div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-xs text-on-surface">Ayam Geprek Bu Rum</span>
+<span class="text-body-sm text-on-surface-variant">Area Kampus UB</span>
+</div>
+<span class="font-mono text-body-md font-semibold text-on-surface">87 scan</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-blue-600 h-full rounded-full" style="width: 18%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Timeline -->
+<div class="bg-surface-container-lowest p-space-2xl rounded-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-md font-headline-md text-on-surface tracking-tight">Aktivitas terbaru</h3>
+<span class="text-body-sm text-outline">Real-time log</span>
+</div>
+<div class="flex flex-col gap-space-lg relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high">
+<!-- Timeline item 1 -->
+<div class="flex items-start gap-space-md relative">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-label-sm font-semibold z-10 shrink-0">A</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-space-sm mb-0.5">
+<span class="bg-primary-fixed text-on-primary-fixed text-label-sm px-1.5 py-0.5 rounded font-medium">Admin</span>
+<span class="text-body-sm text-outline">2 menit lalu</span>
+</div>
+<p class="text-body-md text-on-surface">Admin mengganti tujuan <span class="font-semibold">Kopi Tuku Dieng</span></p>
+</div>
+</div>
+<!-- Timeline item 2 -->
+<div class="flex items-start gap-space-md relative">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-label-sm font-semibold z-10 shrink-0">G</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-space-sm mb-0.5">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-label-sm px-1.5 py-0.5 rounded font-medium">Guest</span>
+<span class="text-body-sm text-outline">1 jam lalu</span>
+</div>
+<p class="text-body-md text-on-surface">Guest mengganti tujuan <span class="font-semibold">Warung Sate Pak Slamet</span></p>
+</div>
+</div>
+<!-- Timeline item 3 -->
+<div class="flex items-start gap-space-md relative">
+<div class="w-6 h-6 rounded-full bg-warning text-on-error flex items-center justify-center text-label-sm font-semibold z-10 shrink-0">A</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-space-sm mb-0.5">
+<span class="bg-primary-fixed text-on-primary-fixed text-label-sm px-1.5 py-0.5 rounded font-medium">Admin</span>
+<span class="text-body-sm text-outline">kemarin</span>
+</div>
+<p class="text-body-md text-on-surface">QR <span class="font-semibold">Hotel Santika</span> dijeda sementara</p>
+</div>
+</div>
+<!-- Timeline item 4 -->
+<div class="flex items-start gap-space-md relative">
+<div class="w-6 h-6 rounded-full bg-success text-on-primary flex items-center justify-center text-label-sm font-semibold z-10 shrink-0">S</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-space-sm mb-0.5">
+<span class="bg-success-bg text-success text-label-sm px-1.5 py-0.5 rounded font-medium">System</span>
+<span class="text-body-sm text-outline">2 hari lalu</span>
+</div>
+<p class="text-body-md text-on-surface">Pembuatan QR baru untuk <span class="font-semibold">Batik Keris Store</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

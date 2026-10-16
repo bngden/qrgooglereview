@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "warning-bg": "#FEF3C7",
+          "warning": "#B45309",
+          "slate-600": "#475569",
+          "tertiary": "#863000",
+          "success": "#16A34A",
+          "danger-bg": "#FDECEC",
+          "blue-100": "#DCE8FB",
+          "surface-bright": "#faf8ff",
+          "primary-fixed": "#dbe1ff",
+          "on-tertiary-container": "#ffd8ca",
+          "on-secondary-fixed": "#041a3f",
+          "on-background": "#131b2e",
+          "danger": "#DC2626",
+          "primary-container": "#1d5bd6",
+          "secondary-container": "#bccefd",
+          "inverse-surface": "#283044",
+          "on-tertiary-fixed-variant": "#7e2c00",
+          "tertiary-container": "#ad4000",
+          "on-secondary-container": "#46577f",
+          "on-primary-container": "#d8e0ff",
+          "tertiary-fixed-dim": "#ffb597",
+          "blue-50": "#F2F7FE",
+          "blue-600": "#1D5BD6",
+          "surface-container-low": "#f2f3ff",
+          "on-error-container": "#93000a",
+          "surface-container-lowest": "#ffffff",
+          "surface": "#faf8ff",
+          "surface-container": "#eaedff",
+          "on-tertiary-fixed": "#360f00",
+          "border": "#DCE6F5",
+          "outline": "#737685",
+          "on-primary-fixed-variant": "#003fa4",
+          "error": "#ba1a1a",
+          "blue-500": "#3B7BEA",
+          "navy-900": "#0A1F44",
+          "secondary-fixed": "#d9e2ff",
+          "star-yellow": "#F5B301",
+          "slate-400": "#94A3B8",
+          "on-error": "#ffffff",
+          "secondary": "#4c5e86",
+          "primary-fixed-dim": "#b3c5ff",
+          "inverse-on-surface": "#eef0ff",
+          "on-secondary-fixed-variant": "#34466d",
+          "on-primary": "#ffffff",
+          "on-secondary": "#ffffff",
+          "blue-700": "#1648B8",
+          "surface-variant": "#dae2fd",
+          "secondary-fixed-dim": "#b4c6f4",
+          "surface-tint": "#1255d0",
+          "outline-variant": "#c3c6d6",
+          "surface-container-high": "#e2e7ff",
+          "surface-dim": "#d2d9f4",
+          "inverse-primary": "#b3c5ff",
+          "success-bg": "#E8F7EE",
+          "primary": "#0043af",
+          "surface-container-highest": "#dae2fd",
+          "tertiary-fixed": "#ffdbcd",
+          "on-surface-variant": "#434654",
+          "on-tertiary": "#ffffff",
+          "background": "#faf8ff",
+          "ink-900": "#0F172A",
+          "on-surface": "#131b2e",
+          "on-primary-fixed": "#001849",
+          "error-container": "#ffdad6"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-2xl": "48px",
+          "gutter": "24px",
+          "margin": "32px",
+          "space-sm": "8px",
+          "space-lg": "24px",
+          "space-md": "16px",
+          "space-xl": "32px",
+          "space-xs": "4px"
+        },
+        "fontFamily": {
+          "headline-md": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "label-md": [
+            "Plus Jakarta Sans"
+          ],
+          "label-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-xs": [
+            "Plus Jakarta Sans"
+          ]
+        },
+        "fontSize": {
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl": [
+            "40px",
+            {
+              "lineHeight": "48px",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "500"
+            }
+          ],
+          "label-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-xs": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface-container-lowest font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-[72px] max-w-7xl mx-auto px-gutter flex items-center justify-between"><a class="flex items-center gap-space-sm" data-path="home" href="#"><div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[24px]">qr_code_2</span></div><span class="font-headline-sm text-on-surface tracking-tight">ReviewQR</span></a><nav class="hidden md:flex items-center gap-space-xl" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg"><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="cara-kerja" href="#">Cara Kerja</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="template-pesan" href="#">Template Pesan</a><a class="text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="faq" href="#">FAQ</a></nav><div><a class="inline-flex items-center justify-center px-space-lg py-space-sm rounded-lg bg-blue-600 text-on-primary font-label-md hover:bg-blue-700 transition-colors shadow-sm" data-path="masuk-admin" href="#">Masuk Admin</a></div></div></header><main class="w-full pt-[72px] bg-surface-container-lowest min-h-[calc(100vh-200px)]"><div class="flex flex-col w-full">
+<!-- 1. HERO SECTION -->
+<section class="relative bg-white pt-12 pb-24 overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(#dce6f5_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none ml-[58%]"></div>
+<div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+<!-- Left Column (7 cols) -->
+<div class="lg:col-span-7 flex flex-col items-start gap-space-lg">
+<div class="inline-flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-blue-100 text-blue-700 font-label-md">
+<span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+          Gratis · Tanpa daftar
+        </div>
+<h1 class="font-headline-xl text-[48px] leading-[56px] text-navy-900 tracking-tight">
+          Buat link review Google untuk bisnismu dalam hitungan detik
+        </h1>
+<p class="font-body-lg text-slate-600 max-w-xl">
+          Tempel link Google Maps, pelanggan langsung masuk ke form bintang dan ulasan. Tanpa mencari, tanpa langkah tambahan.
+        </p>
+<!-- Large Input Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl border border-border p-6 shadow-[0_8px_24px_rgba(10,31,68,0.08)] flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-ink-900">Link Google Maps atau nama bisnis</label>
+<div class="relative flex items-center">
+<input class="w-full h-[56px] px-space-md pr-24 rounded-lg border border-border bg-surface-container-lowest font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" placeholder="Tempel link atau ketik nama bisnis + kota" type="text"/>
+<button class="absolute right-2 px-space-md py-space-sm bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md font-label-sm flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">content_paste</span>
+                Tempel
+              </button>
+</div>
+</div>
+<button class="w-full h-[48px] bg-blue-600 hover:bg-blue-700 text-on-primary font-label-md rounded-[10px] shadow-sm transition-all flex items-center justify-center gap-space-sm" type="button">
+<span>Buat Link Review</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<div class="flex items-center gap-space-xs text-blue-600 font-label-sm cursor-pointer hover:underline pt-space-xs">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Di mana menemukan link Google Maps?</span>
+</div>
+</div>
+<!-- Trust Row -->
+<div class="flex flex-wrap items-center gap-x-space-xl gap-y-space-sm pt-space-xs text-body-sm text-slate-600">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-success text-[18px]">check_circle</span>
+<span>Gratis selamanya</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-success text-[18px]">check_circle</span>
+<span>Tanpa login</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-success text-[18px]">check_circle</span>
+<span>Unduh QR PNG &amp; SVG</span>
+</div>
+</div>
+</div>
+<!-- Right Column (5 cols) - Product Visual Mockup -->
+<div class="lg:col-span-5 relative">
+<div class="absolute -inset-4 bg-blue-100 rounded-3xl -rotate-2 opacity-50 filter blur-sm"></div>
+<div class="relative bg-surface-container-lowest p-space-lg rounded-2xl border border-border shadow-xl flex flex-col gap-space-lg">
+<!-- Mockup Phone / Screen -->
+<div class="bg-surface-container-low p-space-md rounded-xl border border-border flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b border-border pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-3 h-3 rounded-full bg-danger"></div>
+<div class="w-3 h-3 rounded-full bg-warning"></div>
+<div class="w-3 h-3 rounded-full bg-success"></div>
+</div>
+<span class="text-body-sm text-slate-400 font-mono">review.qr/satepakslamet</span>
+</div>
+<div class="bg-white p-space-md rounded-lg border border-border flex flex-col gap-space-sm text-center">
+<h4 class="font-headline-xs text-navy-900">Warung Sate Pak Slamet</h4>
+<p class="text-body-sm text-slate-600">Malang, Jawa Timur</p>
+<div class="flex justify-center gap-1 py-space-xs">
+<span class="material-symbols-outlined text-star-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-star-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-star-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-star-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-star-yellow" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="w-full h-16 bg-blue-50 rounded border border-blue-100 flex items-center justify-center text-body-sm text-slate-600 px-space-md">
+                "Bagaimana pengalaman Anda berkunjung hari ini?"
+              </div>
+</div>
+</div>
+<!-- Table Tent / QR Card Floating -->
+<div class="absolute -bottom-6 -left-6 bg-white p-space-md rounded-xl border border-border shadow-lg flex items-center gap-space-md max-w-[240px]">
+<div class="w-16 h-16 bg-navy-900 rounded-lg flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined text-[32px]">qr_code_2</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-navy-900">Scan untuk Ulasan</span>
+<span class="text-body-sm text-slate-600 text-[11px] leading-tight">Bantu kami dengan ulasan terbaik Anda!</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. SECTION "Cara kerja" -->
+<section class="w-full bg-blue-50 py-[96px]">
+<div class="max-w-7xl mx-auto px-gutter flex flex-col items-center gap-space-2xl">
+<div class="text-center max-w-xl flex flex-col gap-space-sm">
+<h2 class="font-headline-lg text-[36px] text-navy-900">Tiga langkah, selesai</h2>
+<p class="font-body-lg text-slate-600">Proses kilat tanpa kerumitan teknis untuk mendapatkan lebih banyak ulasan.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg w-full">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl border border-border shadow-sm flex flex-col gap-space-md relative">
+<div class="w-8 h-8 rounded-full bg-blue-600 text-on-primary font-headline-xs flex items-center justify-center">1</div>
+<div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined">link</span>
+</div>
+<h3 class="font-headline-sm text-navy-900">Tempel link Maps</h3>
+<p class="font-body-md text-slate-600">Salin link tempat dari Google Maps atau ketik nama bisnis.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl border border-border shadow-sm flex flex-col gap-space-md relative">
+<div class="w-8 h-8 rounded-full bg-blue-600 text-on-primary font-headline-xs flex items-center justify-center">2</div>
+<div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<h3 class="font-headline-sm text-navy-900">Pilih lokasi yang benar</h3>
+<p class="font-body-md text-slate-600">Cek nama dan alamat agar link mengarah ke cabang yang tepat.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl border border-border shadow-sm flex flex-col gap-space-md relative">
+<div class="w-8 h-8 rounded-full bg-blue-600 text-on-primary font-headline-xs flex items-center justify-center">3</div>
+<div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined">share</span>
+</div>
+<h3 class="font-headline-sm text-navy-900">Salin dan bagikan</h3>
+<p class="font-body-md text-slate-600">Gunakan link atau QR di struk, meja, dan pesan WhatsApp.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. SECTION "Kenapa pakai link review" -->
+<section class="w-full bg-white py-[96px]">
+<div class="max-w-7xl mx-auto px-gutter flex flex-col items-center gap-space-2xl">
+<div class="text-center max-w-xl flex flex-col gap-space-sm">
+<h2 class="font-headline-lg text-[36px] text-navy-900">Lebih cepat, lebih banyak ulasan</h2>
+<p class="font-body-lg text-slate-600">Bandingkan pengalaman pelanggan menggunakan link biasa vs ReviewQR.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-xl w-full">
+<!-- Left Card (Muted) -->
+<div class="bg-surface-container-lowest p-space-2xl rounded-xl border border-slate-400 shadow-sm flex flex-col justify-between gap-space-xl">
+<div class="flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-slate-600">Link Maps biasa</h3>
+<span class="w-8 h-8 rounded-full bg-danger-bg text-danger flex items-center justify-center">
+<span class="material-symbols-outlined">close</span>
+</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center gap-space-md p-space-md rounded-lg bg-surface-container-low">
+<span class="font-mono text-slate-400">01</span>
+<span class="text-body-md text-slate-600">Buka Maps</span>
+</div>
+<div class="flex items-center gap-space-md p-space-md rounded-lg bg-surface-container-low">
+<span class="font-mono text-slate-400">02</span>
+<span class="text-body-md text-slate-600">Cari bisnis</span>
+</div>
+<div class="flex items-center gap-space-md p-space-md rounded-lg bg-surface-container-low">
+<span class="font-mono text-slate-400">03</span>
+<span class="text-body-md text-slate-600">Scroll &amp; cari Ulasan</span>
+</div>
+<div class="flex items-center gap-space-md p-space-md rounded-lg bg-surface-container-low">
+<span class="font-mono text-slate-400">04</span>
+<span class="text-body-md text-slate-600">Klik Tulis ulasan</span>
+</div>
+</div>
+</div>
+<p class="text-body-sm text-slate-600 italic border-t border-border pt-space-md">
+            Pelanggan harus mencari tombol Tulis ulasan. Langkah tambahan membuat banyak orang menyerah.
+          </p>
+</div>
+<!-- Right Card (Highlighted) -->
+<div class="bg-blue-50 p-space-2xl rounded-xl border border-blue-600 shadow-md flex flex-col justify-between gap-space-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-blue-600 text-on-primary text-[10px] font-label-sm px-space-md py-space-xs rounded-bl-lg">REKOMENDASI</div>
+<div class="flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-navy-900">Link review ReviewQR</h3>
+<span class="w-8 h-8 rounded-full bg-success-bg text-success flex items-center justify-center">
+<span class="material-symbols-outlined">check</span>
+</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center gap-space-md p-space-md rounded-lg bg-white shadow-sm border border-blue-100">
+<span class="font-mono text-blue-600 font-bold">01</span>
+<span class="text-body-md text-navy-900 font-medium">Scan QR / buka link → Form ulasan langsung terbuka</span>
+</div>
+</div>
+</div>
+<p class="text-body-sm text-navy-900 font-medium border-t border-blue-100 pt-space-md">
+            Form ulasan langsung terbuka begitu link dibuka. Konversi ulasan naik hingga 300%.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. SECTION "Template pesan siap pakai" -->
+<section class="w-full bg-blue-50 py-[96px]">
+<div class="max-w-7xl mx-auto px-gutter flex flex-col items-center gap-space-2xl">
+<div class="text-center max-w-xl flex flex-col gap-space-sm">
+<h2 class="font-headline-lg text-[36px] text-navy-900">Template permintaan review</h2>
+<p class="font-body-lg text-slate-600">Gunakan kalimat persuasif yang terbukti efektif untuk berbagai media.</p>
+</div>
+<!-- Tab bar -->
+<div class="flex flex-wrap items-center justify-center gap-space-lg border-b border-border pb-2 w-full max-w-3xl">
+<button class="px-space-md py-space-sm text-body-md text-slate-600 hover:text-navy-900 transition-colors">Email</button>
+<button class="px-space-md py-space-sm text-body-md text-slate-600 hover:text-navy-900 transition-colors">SMS</button>
+<button class="px-space-md py-space-sm text-body-md text-blue-600 font-semibold border-b-2 border-blue-600">WhatsApp</button>
+<button class="px-space-md py-space-sm text-body-md text-slate-600 hover:text-navy-900 transition-colors">Struk</button>
+<button class="px-space-md py-space-sm text-body-md text-slate-600 hover:text-navy-900 transition-colors">Tombol Website</button>
+</div>
+<!-- Active Tab Content -->
+<div class="w-full max-w-3xl bg-surface-container-lowest p-space-2xl rounded-xl border border-border shadow-sm flex flex-col gap-space-lg">
+<div class="bg-surface-container-low p-space-lg rounded-lg border border-border font-body-lg text-navy-900 leading-relaxed">
+          "Halo! Terima kasih sudah berkunjung ke Warung Sate Pak Slamet. Masukan jujur Anda sangat berarti bagi perkembangan kami. Tulis ulasan di Google lewat tautan ini ya: [LINK REVIEW] 🙏"
+        </div>
+<div class="flex items-center justify-between flex-wrap gap-space-md">
+<span class="text-body-sm text-slate-600">Undang semua pelanggan untuk memberi ulasan jujur, bukan hanya yang puas.</span>
+<button class="px-space-lg py-space-sm bg-transparent border border-border text-ink-900 hover:bg-blue-50 rounded-lg font-label-md transition-colors flex items-center gap-space-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+            Salin template
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. SECTION "Pemecahan masalah" -->
+<section class="w-full bg-white py-[96px]">
+<div class="max-w-4xl mx-auto px-gutter flex flex-col items-center gap-space-2xl">
+<div class="text-center max-w-xl flex flex-col gap-space-sm">
+<h2 class="font-headline-lg text-[36px] text-navy-900">Pemecahan masalah umum</h2>
+<p class="font-body-lg text-slate-600">Solusi cepat untuk kendala yang sering ditemui saat pembuatan link.</p>
+</div>
+<div class="w-full flex flex-col gap-space-md">
+<!-- Accordion 1 (Expanded) -->
+<div class="bg-surface-container-lowest rounded-xl border border-border p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between cursor-pointer">
+<h3 class="font-headline-sm text-navy-900">Bisnis tidak ditemukan</h3>
+<span class="material-symbols-outlined text-blue-600">expand_less</span>
+</div>
+<p class="font-body-md text-slate-600 pt-space-xs border-t border-border">
+            Pastikan nama bisnis dan kota diketik dengan benar atau gunakan URL langsung dari Google Maps.
+          </p>
+</div>
+<!-- Accordion 2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-border p-space-lg shadow-sm flex flex-col gap-space-sm cursor-pointer hover:border-blue-500 transition-colors">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-navy-900">Link pendek gagal dibuka</h3>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+</div>
+<!-- Accordion 3 -->
+<div class="bg-surface-container-lowest rounded-xl border border-border p-space-lg shadow-sm flex flex-col gap-space-sm cursor-pointer hover:border-blue-500 transition-colors">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-navy-900">Listing yang terbuka salah</h3>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+</div>
+<!-- Accordion 4 -->
+<div class="bg-surface-container-lowest rounded-xl border border-border p-space-lg shadow-sm flex flex-col gap-space-sm cursor-pointer hover:border-blue-500 transition-colors">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-navy-900">Beberapa cabang bernama sama</h3>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. SECTION FAQ -->
+<section class="w-full bg-blue-50 py-[96px]">
+<div class="max-w-4xl mx-auto px-gutter flex flex-col items-center gap-space-2xl">
+<div class="text-center max-w-xl flex flex-col gap-space-sm">
+<h2 class="font-headline-lg text-[36px] text-navy-900">Pertanyaan yang sering diajukan</h2>
+<p class="font-body-lg text-slate-600">Semua yang perlu Anda ketahui tentang layanan ReviewQR.</p>
+</div>
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- FAQ 1 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-border shadow-sm flex flex-col gap-space-sm">
+<h3 class="font-headline-xs text-navy-900">Apakah benar-benar gratis?</h3>
+<p class="font-body-md text-slate-600">Ya, pembuatan link dasar dan QR code standar dapat digunakan secara gratis selamanya tanpa batasan klik.</p>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-border shadow-sm flex flex-col gap-space-sm">
+<h3 class="font-headline-xs text-navy-900">Apakah perlu akun Google Business Profile?</h3>
+<p class="font-body-md text-slate-600">Tidak perlu login ke akun Anda. Cukup masukkan link Google Maps tempat usaha Anda yang sudah terdaftar.</p>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-border shadow-sm flex flex-col gap-space-sm">
+<h3 class="font-headline-xs text-navy-900">Apakah bisa digunakan untuk banyak cabang bisnis?</h3>
+<p class="font-body-md text-slate-600">Tentu! Anda bisa membuat link terpisah untuk setiap cabang agar ulasan masuk ke lokasi yang tepat.</p>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-border shadow-sm flex flex-col gap-space-sm">
+<h3 class="font-headline-xs text-navy-900">Apakah pelanggan perlu login akun Gmail?</h3>
+<p class="font-body-md text-slate-600">Pelanggan hanya perlu login di browser mereka jika belum masuk ke akun Google saat akan menulis ulasan.</p>
+</div>
+<!-- FAQ 5 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-border shadow-sm flex flex-col gap-space-sm">
+<h3 class="font-headline-xs text-navy-900">Bisakah QR code diganti tujuannya setelah dicetak?</h3>
+<p class="font-body-md text-slate-600">Bisa, jika Anda menggunakan fitur QR Dinamis yang tersedia pada akun admin profesional kami.</p>
+</div>
+<!-- FAQ 6 -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-border shadow-sm flex flex-col gap-space-sm">
+<h3 class="font-headline-xs text-navy-900">Format file apa saja yang tersedia untuk diunduh?</h3>
+<p class="font-body-md text-slate-600">Anda dapat mengunduh QR code dalam format PNG beresolusi tinggi maupun SVG vektor untuk keperluan cetak.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. DARK CTA BAND -->
+<section class="w-full bg-navy-900 py-16">
+<div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-xl">
+<div class="flex flex-col gap-space-xs text-center md:text-left">
+<h2 class="font-headline-lg text-[32px] text-white">Ingin QR yang tujuannya bisa diganti setelah dicetak?</h2>
+<p class="font-body-lg text-blue-100">QR dinamis ReviewQR: cetak sekali, ubah tujuan kapan saja.</p>
+</div>
+<div>
+<a class="inline-flex items-center justify-center px-space-2xl py-space-md rounded-lg bg-white text-blue-600 hover:bg-blue-50 font-label-md transition-colors shadow-sm" data-path="masuk-admin" href="#">
+          Masuk Admin
+        </a>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low py-space-2xl"><div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant text-body-sm"><div>© 2024 ReviewQR. Hak Cipta Dilindungi.</div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privasi</a><a class="hover:text-on-surface transition-colors" href="#">Syarat Ketentuan</a><a class="hover:text-on-surface transition-colors" href="#">Kontak</a></div></div></footer></body></html>
