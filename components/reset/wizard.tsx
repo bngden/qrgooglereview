@@ -34,8 +34,8 @@ const STEP_PERCENT: Record<Step, string> = { 1: '33% Selesai', 2: '66% Selesai',
 function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-surface text-on-surface flex flex-col">
-      <header className="sticky top-0 inset-x-0 z-40 bg-surface/85 backdrop-blur-xl pt-safe">
-        <div className="h-16 px-gutter flex items-center justify-between">
+      <header className="sticky top-0 inset-x-0 z-40 bg-surface/85 backdrop-blur-xl pt-safe border-b border-border/40">
+        <div className="h-16 px-gutter flex items-center justify-between max-w-[640px] mx-auto w-full">
           <div className="flex items-center gap-3">
             <button
               type="button"
@@ -59,10 +59,13 @@ function Shell({ children }: { children: React.ReactNode }) {
           </span>
         </div>
       </header>
-      <main className="flex flex-col w-full px-gutter flex-1">{children}</main>
+      <main className="flex flex-col w-full px-gutter flex-1 items-center">{children}</main>
     </div>
   )
 }
+
+const contentWidth = 'w-full max-w-[640px] mx-auto'
+
 
 function Progress({ step }: { step: Step }) {
   const active = step === 4 ? 3 : step
@@ -217,8 +220,8 @@ export function ResetWizard() {
   if (step === 4 && done) {
     return (
       <Shell>
-        <Progress step={4} />
-        <div className="flex flex-col w-full pb-space-2xl pt-6 gap-space-lg">
+        <div className={`${contentWidth} flex flex-col pb-space-2xl pt-6 gap-space-lg`}>
+          <Progress step={4} />
           <div className="flex flex-col items-center text-center p-space-lg bg-white rounded-xl shadow-md">
             <div className="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center mb-space-md relative">
               <span
@@ -298,7 +301,7 @@ export function ResetWizard() {
   if (step === 1) {
     return (
       <Shell>
-        <div className="flex flex-col w-full pb-32">
+        <div className={`${contentWidth} flex flex-col pb-32`}>
           <Progress step={1} />
           <div className="flex flex-col gap-space-xs mb-8 pt-6">
             <h1 className="font-headline-md text-navy-900 tracking-tight">Ganti tujuan QR</h1>
@@ -425,7 +428,19 @@ export function ResetWizard() {
           </div>
         </div>
 
-        <div className="fixed bottom-0 inset-x-0 p-gutter bg-surface/90 backdrop-blur-md pt-4 pb-safe z-40 flex flex-col">
+        {/* Desktop: tombol inline di bawah form; Mobile: sticky bottom bar */}
+        <div className="hidden lg:flex w-full pt-2">
+          <button
+            type="button"
+            disabled={!isValidId(idInput)}
+            onClick={() => setStep(2)}
+            className={`${primaryBtn} max-w-sm ml-auto`}
+          >
+            <span>Lanjut</span>
+            <span aria-hidden="true" className="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </button>
+        </div>
+        <div className="lg:hidden fixed bottom-0 inset-x-0 p-gutter bg-surface/90 backdrop-blur-md pt-4 pb-safe z-40 flex flex-col">
           <button
             type="button"
             disabled={!isValidId(idInput)}
@@ -448,7 +463,7 @@ export function ResetWizard() {
   if (step === 2) {
     return (
       <Shell>
-        <div className="flex flex-col w-full pb-space-2xl">
+        <div className={`${contentWidth} flex flex-col pb-space-2xl`}>
           <Progress step={2} />
           <div className="pt-6">
             <Heading
@@ -524,7 +539,7 @@ export function ResetWizard() {
   const qr = session?.qr
   return (
     <Shell>
-      <div className="flex flex-col w-full pb-space-2xl">
+      <div className={`${contentWidth} flex flex-col pb-space-2xl`}>
         <Progress step={3} />
         <div className="pt-6 mb-6">
           <h1 className="font-headline-md text-navy-900 font-bold mb-1">Atur Tujuan Baru</h1>
