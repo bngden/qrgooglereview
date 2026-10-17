@@ -14,6 +14,7 @@ if (!url) {
   process.exit(1)
 }
 
+
 const sql = neon(url)
 const db = drizzle(sql)
 
