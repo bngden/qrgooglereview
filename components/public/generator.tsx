@@ -83,7 +83,13 @@ export function Generator() {
           />
           <button
             type="button"
-            onClick={() => navigator.clipboard.readText().then((t) => setInput(t))}
+            onClick={() => {
+              navigator.clipboard
+                .readText()
+                .then((t) => setInput(t))
+                .catch(() => {})
+            }}
+            aria-label="Tempel dari clipboard"
             className="absolute right-2 px-space-md py-space-sm bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md font-label-sm flex items-center gap-space-xs transition-colors"
           >
             <span className="material-symbols-outlined text-[18px]">content_paste</span>

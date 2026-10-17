@@ -568,7 +568,13 @@ export function ResetWizard() {
             />
             <button
               type="button"
-              onClick={() => navigator.clipboard.readText().then((t) => setDestination(t))}
+              onClick={() => {
+                navigator.clipboard
+                  .readText()
+                  .then((t) => setDestination(t))
+                  .catch(() => {})
+              }}
+              aria-label="Tempel dari clipboard"
               className="absolute right-2 px-4 py-2 bg-blue-50 text-blue-600 font-label-md rounded-lg hover:bg-blue-100 transition-colors min-h-11"
             >
               Tempel
