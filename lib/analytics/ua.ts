@@ -57,6 +57,7 @@ const BOT_PATTERNS = [
   /java\//i,
   /ahrefs/i,
   /semrush/i,
+  /semrush/i,
 ]
 
 export function isBot(ua: string): boolean {
